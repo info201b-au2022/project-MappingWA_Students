@@ -47,7 +47,7 @@ In this project, we examine how one such facet of students’ personal life, fin
 - Administors involved in the processes of creating district wide curriculums can use this data to cater to students who are struggling based on the needs represented in the data as well as what is suggested through analysis. 
 
 ### _Indirect Stakeholders:_
-- Students from backgrounds of lower economic status and peoples of color will be indirectly affected by this data the most. They are the people whose well-being are most susceptible to possible poor decisions made by policymakers and officials.
+- Students from backgrounds of lower economic status and peoples of color will be indirectly affected by this data the most. They are the people whose well-being are most susceptible to possible poor decisions made by policymakers and officials (Gaines, 2021).
 Parents and guardians of students who need more access to help and a greater academic support system outside of school will be indirectly affected by this data. These guardians are the ways these children will be able to get access to greater help and support.
 - Educators and administrators will be indirectly affected by this data. Even if they are not interacting with the data directly, they are at the front lines of children’s education and are direct sources of information for children and responsible for children's learning inside the classroom.
 
@@ -56,17 +56,18 @@ Parents and guardians of students who need more access to help and a greater aca
 ### _Trust_
 One of the goals of this research is to develop trust between students, their families, and the OSPI, the latter of which is responsible for overseeing the education of all K-12 students in Washington state.
 ### _Universal Access_
-Every student encounters challenges over the course of their education. Sometimes, these challenges aren’t rooted within their ability to learn so much as it is the situation that they face back at home.
+Every student encounters challenges over the course of their education. Sometimes, these challenges aren’t rooted within their ability to learn so much as it is the situation that they face back at home (Coxe, 1923).
 ### _Data Transparency_
 In exploring this problem domain, we are making publicly available our research on how race and income are perhaps interconnected when it comes to inequity in Washington education. Much of this information was not yet available when we began our research, and so our hope is that those who review our work might find our analysis useful in improving education for Washington students.
 Potential Benefits and Harms
 
 ### **Harms**
-Stakeholders may have a hard time adjusting to new changes implemented within the education system. Additionally, the data is particularly sensitive to those that are already susceptible to struggling in schools. Therefore, if a group is misrepresented or not represented that could have an even harder time as the data and our analysis would not exclude them.
+* Stakeholders may have a hard time adjusting to new changes implemented within the education system.
+* Our selected dataset is particularly sensitive to those that are already susceptible to struggling in schools. Therefore, if a group is misrepresented or not represented that could have an even harder time as the data and our analysis would not exclude them (Sullivan, 2016).
 
 ### **Benefits**	
-Improving the Washington State educational system to be more equitable and just for students that need help 
-Improvements of test scores due to better support given to students through their academic careers
+* Improving the Washington State educational system to be more equitable and just for students that need help. 
+* Improvements of test scores due to better support given to students through their academic careers.
 
 ## **Research Questions:**
 
@@ -169,13 +170,16 @@ N/A
 ## **Acknowledgments:**
 N/A
 ## **References:**
+* Coxe, W. W. (1923). _Home Conditions as a Cause of Failure in High School_. Educational Research Bulletin, 2(13), 200–202. http://www.jstor.org/stable/1470942
 * Data.WA.gov (2020). _Report Card Graduation 2015-16_ [Data file]. Retrieved October 31, 2022, from https://data.wa.gov/Education/Report-Card-Graduation-2015-16/fdkr-wxze.
 * Data.WA.gov (2020). _Report Card Graduation 2016-17_ [Data file]. Retrieved October 31, 2022, from https://data.wa.gov/Education/Report-Card-Graduation-2016-17/ef3e-qpb8. 
 * Data.WA.gov (2020). _Report Card Graduation 2017-18_ [Data file]. Retrieved October 31, 2022, from https://data.wa.gov/Education/Report-Card-Graduation-2017-18/384s-ygbu. 
 * Data.WA.gov (2020). _Report Card Graduation 2018-19_ [Data file]. Retrieved October 31, 2022, from https://data.wa.gov/Education/Report-Card-Graduation-2018-19/6iji-4nux. 
 * Data.WA.gov (2020). _Report Card Graduation 2019-20_ [Data file]. Retrieved October 31, 2022, from https://data.wa.gov/Education/Report-Card-Graduation-2019-20/gges-4vcv.
 * DataUSA (n.d.). _Income by Location_ [Data file]. Retrieved October 31, 2022, from https://datausa.io/api/data?Geography=04000US53:children&measure=Household%20Income%20by%20Race,Household%20Income%20by%20Race%20Moe&drilldowns=Race.
-* Feeding America (2011-2022). _Map the Meal Gap Data_ [Data file]. Retrieved October 31, 2022, from https://www.feedingamerica.org/research/map-the-meal-gap/by-county. 
+* Feeding America (2011-2022). _Map the Meal Gap Data_ [Data file]. Retrieved October 31, 2022, from https://www.feedingamerica.org/research/map-the-meal-gap/by-county.
+* Gaines et al. (2022, April 21). How weak safety net policies exacerbate regional and racial inequality. Center for American Progress. Retrieved October 31, 2022, from https://www.americanprogress.org/article/weak-safety-net-policies-exacerbate-regional-racial-inequality/.
+* Sullivan, T. (2017, August 30). _Media misrepresentation has lasting effects_, Truman Media Network. Retrieved October 31, 2022, from https://tmn.truman.edu/blog/editorial/media-misrepresentation-has-lasting-effects/.
 * U.S. Census Bureau (2016-2020). _Poverty Status in the Past 12 Months, ACS 5-Year Estimates_ [Data file]. Retrieved October 31, 2022, from https://data.census.gov/cedsci/table?q=poverty%20washington%20counties%20range%20of%20years&tid=ACSST5Y2020.S1701.
 * Washington Office of Superintendent of Public Instruction. (n.d.). _About OSPI._ OSPI. Retrieved October 31, 2022, from https://www.k12.wa.us/about-ospi.
 ## **Appendix A: Questions:**
