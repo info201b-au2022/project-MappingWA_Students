@@ -39,7 +39,7 @@ In this project, we examine how one such facet of students’ personal life, fin
 
 ## **Problem Domain:**
 
-### Stakeholders
+### **Stakeholders**
 
 ### _Direct Stakeholders:_
 - Policymakers and government officials who wish to improve student success act as direct stakeholders to this research. These individuals have the power to distribute state resources to ensure that the needs of all students are properly met, resolving any deficiencies thereof.
@@ -51,7 +51,7 @@ In this project, we examine how one such facet of students’ personal life, fin
 Parents and guardians of students who need more access to help and a greater academic support system outside of school will be indirectly affected by this data. These guardians are the ways these children will be able to get access to greater help and support.
 - Educators and administrators will be indirectly affected by this data. Even if they are not interacting with the data directly, they are at the front lines of children’s education and are direct sources of information for children and responsible for children's learning inside the classroom.
 
-### Human Values
+### **Human Values**
 
 ### _Trust_
 One of the goals of this research is to develop trust between students, their families, and the OSPI, the latter of which is responsible for overseeing the education of all K-12 students in Washington state.
@@ -61,10 +61,10 @@ Every student encounters challenges over the course of their education. Sometime
 In exploring this problem domain, we are making publicly available our research on how race and income are perhaps interconnected when it comes to inequity in Washington education. Much of this information was not yet available when we began our research, and so our hope is that those who review our work might find our analysis useful in improving education for Washington students.
 Potential Benefits and Harms
 
-### Harms
+### **Harms**
 Stakeholders may have a hard time adjusting to new changes implemented within the education system. Additionally, the data is particularly sensitive to those that are already susceptible to struggling in schools. Therefore, if a group is misrepresented or not represented that could have an even harder time as the data and our analysis would not exclude them.
 
-### Benefits	
+### **Benefits**	
 Improving the Washington State educational system to be more equitable and just for students that need help 
 Improvements of test scores due to better support given to students through their academic careers
 
