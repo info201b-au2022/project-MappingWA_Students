@@ -11,11 +11,30 @@ census_data <- gather(census_data, key = counties, value = feature, -Label..Grou
 census_data <- spread(census_data, key = Label..Grouping., value = feature)
 View(census_data)
 
-censes_data %>%
-  rename(
-    Label..Grouping. = group_type
-    feature =  below_poverty_count
-  )
+# Re-naming columns for clarity
+colnames(census_data)[1] = "group_type"
+colnames(census_data)[3] = "below_poverty_count"
+View(census_data)
+
+census_data %>%
+  filter(group_type == "    White alone") |
+    (group_type == "    Black or African American alone") |
+    (group_type == "    American Indian and Alaska Native alone") |
+    (group_type == "    Asian alone") |
+    (group_type == "    Native Hawaiian and Other Pacific Islander alone") |
+    (group_type == "    Some other race alone") |
+    (group_type == "    Two or more races") |
+    (group_type == "Hispanic or Latino origin (of any race)") |
+    (group_type == "White alone, not Hispanic or Latino")
+View(census_data)
+
+  
 # race(grouping) > categorical
 # below poverty > continuous
-# counties > categorical
+# counties > categorical - not using 
+  # disregarding counties with this assignment > may opt to do one county then
+  # repeat using a function to replicate with all counties provided
+
+# PIE CHART BETWEEN RACIAL GROUPS AND POVERTY
+pie()
+
