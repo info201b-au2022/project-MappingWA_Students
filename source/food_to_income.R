@@ -11,26 +11,69 @@
 #   per county
 
 # Load libraries
+rm(list = ls())
 library(dplyr)
-library(tidyverse)
+library(tidyr)
+library(stringr)
 library(readxl)
 library(ggplot2)
-# library(rgdal)
-# library(sf)
+library(plotly)
 
 # Dataframe wrangling function
 food_2016 <- read_excel("data/map_the_meal_gap_data/meal_gap_2016.xlsx")
+food_2016 <- food_2016 %>%
+    filter(State == "WA") %>%
+    rename(food_insecurity_rate = "2016 Food Insecurity Rate") %>%
+    rename(location = "County, State") %>%
+    mutate(county =
+        tolower(
+            str_sub(
+                location,
+                0,
+                nchar(location) - nchar(" County, Washington")
+            )
+        )
+    )
+
+# generates a blank theme
+blank <- function() {
+    return(
+        theme(
+            axis.line = element_blank(),
+            axis.text = element_blank(),
+            axis.ticks = element_blank(),
+            axis.title = element_blank(),
+            panel.grid.major = element_blank(),
+            panel.grid.minor = element_blank(),
+        )
+    )
+}
 
 # chart creation func
 create_food_graph <- function(dataframe) {
-    # data = dataframe
-    ggplot(map_data("county", "washington")) +
+    county_shape <- map_data("county", "Washington") %>%
+        rename(county = subregion) %>%
+        left_join(dataframe, by = "county")
+    
+    map <- ggplot(county_shape) +
         geom_polygon(
-            mapping = aes(x = long, y = lat, group = group),
+            mapping =
+                aes(x = long,
+                    y = lat,
+                    group = group,
+                    fill = `food_insecurity_rate`
+                ),
             color = "white",
-            size = .1
+            size = 0.5
         ) +
-    coord_map()
+        coord_map() +
+        scale_fill_continuous() +
+        labs(
+            title = "Map of Food Insecurity Rates in Washington State",
+            fill = "Percent Food-Insecure"
+        ) +
+        blank()
+   # ggplotly(map)
 }
 
-food_map_2016 <- create_food_graph(food_2016)
+test <- create_food_graph(food_2016)
