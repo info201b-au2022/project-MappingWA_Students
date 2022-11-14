@@ -73,6 +73,7 @@ load_food_insecurity_data <- function(year) {
 # for each county specified in the given dataframe. The result of this function
 # represents the data for the given year.
 create_food_chart <- function(df, year) {
+    lab_title <- "Median Income versus Percent Child Food Insecurity Across Washington Counties,"
     food_df <- left_join(df, median_incomes, by = "county")
     top_insecure <- food_df %>%
         mutate(county = toupper(county)) %>%
@@ -85,7 +86,7 @@ create_food_chart <- function(df, year) {
         )
     ) +
     geom_point(
-        alpha = 1
+        alpha = 1, size = 3
     ) +
     geom_label_repel(
         data = top_insecure,
@@ -94,8 +95,7 @@ create_food_chart <- function(df, year) {
     ) +
     labs(
         title = paste(
-            "Median Income versus Percent Child Food Insecurity
-            Across Washington Counties",
+            lab_title,
             year
         ),
         x = "Median Income in US Dollars",
