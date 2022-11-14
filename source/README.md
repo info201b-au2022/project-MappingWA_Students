@@ -5,13 +5,10 @@ these sub-directories (TODO: Update/Delete)
 
 |Source Directories | Brief Description|
 |---------------| -----------------|
-<<<<<<< HEAD
-| race_and_poverty.R | A R code file exploring and representing the relationship between racial groups and if they fall below the poverty line in the counties of Washington State. Code for a data visualization in the form of a pie chart. Answers our research question, _"How are race and poverty related?"_
-| food_to_income.R | A R code file exploring and representing the relationship between food insecurity and student's socioeconomic status within Washington State. Code for data visualization in the form of a pie chart. Answers our research question, _"How might food insecurity be related to students’ socioeconomic status?"_
-=======
-|[race_and_poverty.R](./race_and_poverty.R) An R code file exploring and representing the relationship between racial groups and if they fall below the poverty line in the counties of Washington State. Code for a data visualization in the form of a pie chart. Answers our research question, _"How are race and poverty related?"_
-|[food_to_income.R|](./food_to_income.R) An R code file exploring and representing the relationship between food insecurity and student's socioeconomic status within Washington State. Code for data visualization in the form of a scatterplot. Answers our research question, _"How might food insecurity be related to students’ socioeconomic status?"_
->>>>>>> d22af20fcc1a0c1f69e6258aded3917aadc38939
+| [race_and_poverty.R](./race_and_poverty.R) | A R code file exploring and representing the relationship between racial groups and if they fall below the poverty line in the counties of Washington State. Code for a data visualization in the form of a pie chart. Answers our research question, _"How are race and poverty related?"_
+| [food_to_income.R](./food_to_income.R) | A R code file exploring and representing the relationship between food insecurity and student's socioeconomic status within Washington State. Code for data visualization in the form of a pie chart. Answers our research question, _"How might food insecurity be related to students’ socioeconomic status?"_
+| title and link | Description...
+| title and link | Description...
 |[xxx](./xxx) | Description ...
 |[util.R](./util.R) | An R source file for storing miscellaneous functions that currently have no use; this file may be deleted by submission of final project deliverable.
 |[xxx](./xxx) | Description ...
