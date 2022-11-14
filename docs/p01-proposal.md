@@ -8,8 +8,8 @@
 
 **Authors:**
 
-> Anika Indurkar (anikai2@uw.edu)  
 > Adora Thienthanh Pham (apham25@uw.edu)  
+> Anika Indurkar (anikai2@uw.edu)  
 > Ella Gabrielle Uchtmann (ellau@uw.edu)  
 > Richard Tran (rtran04@uw.edu)
 
@@ -177,8 +177,12 @@ N/A
 * Data.WA.gov (2020). _Report Card Graduation 2018-19_ [Data file]. Retrieved October 31, 2022, from https://data.wa.gov/Education/Report-Card-Graduation-2018-19/6iji-4nux. 
 * Data.WA.gov (2020). _Report Card Graduation 2019-20_ [Data file]. Retrieved October 31, 2022, from https://data.wa.gov/Education/Report-Card-Graduation-2019-20/gges-4vcv.
 * DataUSA (n.d.). _Income by Location_ [Data file]. Retrieved October 31, 2022, from https://datausa.io/api/data?Geography=04000US53:children&measure=Household%20Income%20by%20Race,Household%20Income%20by%20Race%20Moe&drilldowns=Race.
-* Feeding America (2011-2022). _Map the Meal Gap Data_ [Data file]. Retrieved October 31, 2022, from https://www.feedingamerica.org/research/map-the-meal-gap/by-county.
-* Gaines et al. (2022, April 21). How weak safety net policies exacerbate regional and racial inequality. Center for American Progress. Retrieved October 31, 2022, from https://www.americanprogress.org/article/weak-safety-net-policies-exacerbate-regional-racial-inequality/.
+* Gundersen, C., A. Dewey, A. Crumbaugh, M. Kato & E. Engelhard (2018). _Map the Meal Gap 2018: A Report on County and Congressional District Food Insecurity and County Food Cost in the United States in 2016_ [Data file]. Feeding America.
+* Gundersen, C., A. Dewey, M. Kato, A. Crumbaugh & M. Strayer (2019). _Map the Meal Gap 2019: A Report on County and Congressional District Food Insecurity and County Food Cost in the United States in 2017_ [Data file]. Feeding America.
+* Gundersen, C., A. Dewey, E. Engelhard, M. Strayer & L. Lapinski (2020). _Map the Meal Gap 2020: A Report on County and Congressional District Food Insecurity and County Food Cost in the United States in 2018_ [Data file]. Feeding America.
+* Gundersen, C., Strayer, M., Dewey, A., Hake, M., & Engelhard, E. (2021). _Map the Meal Gap 2021: An Analysis of County and Congressional District Food Insecurity and County Food Cost in the United States in 2019_ [Data file]. Feeding America. 
+* Gundersen, C., Strayer, M., Dewey, A., Hake, M., & Engelhard, E. (2022). _Map the Meal Gap 2022: An Analysis of County and Congressional District Food Insecurity and County Food Cost in the United States in 2020_ [Data file]. Feeding America. 
+* Gaines et al. (2022, April 21). _How weak safety net policies exacerbate regional and racial inequality_. Center for American Progress. Retrieved October 31, 2022, from https://www.americanprogress.org/article/weak-safety-net-policies-exacerbate-regional-racial-inequality/.
 * Sullivan, T. (2017, August 30). _Media misrepresentation has lasting effects_. Truman Media Network. Retrieved October 31, 2022, from https://tmn.truman.edu/blog/editorial/media-misrepresentation-has-lasting-effects/.
 * U.S. Census Bureau (2016-2020). _Poverty Status in the Past 12 Months, ACS 5-Year Estimates_ [Data file]. Retrieved October 31, 2022, from https://data.census.gov/cedsci/table?q=poverty%20washington%20counties%20range%20of%20years&tid=ACSST5Y2020.S1701.
 * Washington Office of Superintendent of Public Instruction. (n.d.). _About OSPI._ OSPI. Retrieved October 31, 2022, from https://www.k12.wa.us/about-ospi.

@@ -6,8 +6,11 @@ graduation_rates <- report_data %>%
   select(County, StudentGroup, GraduationRate)
 view(graduation_rates)
 
-report_data <- report_data %>%
-  
+library(tidyr)
+
+print(graduation_rates %>% drop_na())
+View(graduation_rates)
+
 
 plot <- ggplot(data = graduation_rates) +
   geom_col(mapping = aes(
@@ -15,3 +18,4 @@ plot <- ggplot(data = graduation_rates) +
     y = GraduationRate
   ))
 plot
+
