@@ -1,5 +1,18 @@
 # This file contains miscellaneous functions that are currently not in use.
 
+# Generates a blank theme for mapping.
+blank <- function() {
+    return(
+        theme(
+            axis.line = element_blank(),
+            axis.text = element_blank(),
+            axis.ticks = element_blank(),
+            axis.title = element_blank(),
+            panel.grid.major = element_blank(),
+            panel.grid.minor = element_blank(),
+        )
+    )
+}
 
 # Function to create choropleth map
 create_food_graph <- function(dataframe) {
