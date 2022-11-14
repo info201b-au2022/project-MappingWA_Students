@@ -8,8 +8,8 @@
 
 **Authors:**
 
-> Anika Indurkar (anikai2@uw.edu)  
 > Adora Thienthanh Pham (apham25@uw.edu)  
+> Anika Indurkar (anikai2@uw.edu)  
 > Ella Gabrielle Uchtmann (ellau@uw.edu)  
 > Richard Tran (rtran04@uw.edu)
 

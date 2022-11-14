@@ -17,7 +17,6 @@ library(tidyr)
 library(stringr)
 library(readxl)
 library(ggplot2)
-# library(plotly)
 
 median_incomes <- read.csv("data/wa_county_median_incomes.csv")
 median_incomes <- median_incomes %>%
@@ -32,7 +31,7 @@ median_incomes <- median_incomes %>%
             )
         )
     )
-    
+
 # Dataframe wrangling function
 
 food_2016 <- read_excel("data/map_the_meal_gap_data/meal_gap_2016.xlsx")
@@ -64,32 +63,8 @@ blank <- function() {
     )
 }
 
-# chart creation func
-create_food_graph <- function(dataframe) {
-    county_shape <- map_data("county", "Washington") %>%
-        rename(county = subregion) %>%
-        left_join(dataframe, by = "county")
-    
-    map <- ggplot(county_shape) +
-        geom_polygon(
-            mapping =
-                aes(x = long,
-                    y = lat,
-                    group = group,
-                    fill = food_insecurity_rate
-                ),
-            color = "white",
-            size = 0.5
-        ) +
-        scale_fill_distiller(palette = "Greens") +
-        coord_map() +
-        labs(
-            title = "Map of Food Insecurity Rates in Washington State",
-            fill = "Percent Food-Insecure"
-        ) +
-        blank()
-    return(map)
-   # ggplotly(map)
-}
+
 
 test <- create_food_graph(food_2016)
+
+test2 <- read.csv("data/ospi_report_card_data/Report_Card_Graduation_2015-16.csv")
