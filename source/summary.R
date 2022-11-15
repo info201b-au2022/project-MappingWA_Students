@@ -28,6 +28,9 @@ low_median_high_insecure <- combined_income_food %>%
   select(Year, Geography, Household.Income.by.Race, food_insecurity_rate) %>%
   head(5)
 
+# At a later date: what is the difference in income and food insecurity between
+# the highest median income, lowest food insecure vs. Whitman (its opposite)?
+
 # CHART 2 - Ella
 source("source/race_and_poverty.R")
 # What race has the highest percentage of people below the poverty level in
