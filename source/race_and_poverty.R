@@ -34,6 +34,15 @@ colnames(census_data)[1] <- "race_origin"
 colnames(census_data)[2] <- "counties"
 colnames(census_data)[3] <- "percent"
 
+<<<<<<< HEAD
+=======
+colnames(census_data)[1] <- "race_origin"
+colnames(census_data)[2] <- "counties"
+colnames(census_data)[3] <- "count"
+
+
+## filtering specific county "Adams"
+>>>>>>> cd971840862205a50e3c69e6aead6ce77b982a06
 
 ## filtering specific county "Whitman"
 census_data <- census_data %>%
@@ -53,16 +62,31 @@ plot_labels <- labs(
   x = "",
   y = "",
   title = "Distribution of Racial Groups Below the Poverty Line",
+<<<<<<< HEAD
   subtitle = "Whitman County Washington, 2016",
   caption = "MappingWA_Students Project",
   alt = "Distribution of Racial Groups Below the Poverty Line in Adams County, WA, 2016"
+=======
+  subtitle = "Adams County, Washington",
+  caption = "MappingWA_Students Project",
+  alt = "Distribution of Racial Groups Below the Poverty Line in Adams County, WA",
+  fill = "Racial Group"
+>>>>>>> cd971840862205a50e3c69e6aead6ce77b982a06
 )
 
 ## chart function
 pie_chart_race_and_poverty <- function(census_data) {
   chart <- ggplot(data = census_data) +
+<<<<<<< HEAD
     geom_bar(
       mapping = aes(x = "", y = percent, fill = race_origin),
+=======
+    #geom_col(
+#      coord_polar("y", start = 0)
+    #) +
+    geom_bar(
+      mapping = aes(x = "", y = count, fill = race_origin),
+>>>>>>> cd971840862205a50e3c69e6aead6ce77b982a06
       stat = "identity",
       width = 1,
     ) +
@@ -73,6 +97,7 @@ pie_chart_race_and_poverty <- function(census_data) {
     )
   return(chart)
 }
+<<<<<<< HEAD
 
 p <- pie_chart_race_and_poverty(census_data)
 p
@@ -84,4 +109,7 @@ p
 
 
 
+=======
+>>>>>>> cd971840862205a50e3c69e6aead6ce77b982a06
 
+p <- pie_chart_race_and_poverty(census_data)
