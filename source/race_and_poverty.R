@@ -1,24 +1,18 @@
-## RESEARCH QUESTION: How are race and poverty related?
-## cvs: https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/census_bureau_data/us_census_bureau_2016.csv
-
-# race/origin > categorical
-# below poverty > continuous
-# counties > categorical 
-
+# How are Race and Poverty Related?
+# cvs: https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/census_bureau_data/us_census_bureau_2016.csv
 
 rm(list=ls())
 census_data <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/census_bureau_data/us_census_bureau_2016.csv", stringsAsFactors = FALSE)
-#View(census_data)
+View(census_data)
 
 # DATA WRANGLING
 library("tidyr")
 library("stringr")
 
-## Organizing raw data frame and filtering through rows to 
-## organize by race as well as through percentage 
-## below poverty level
-## Notice: Hispanic and Latino categorization is excluded from data
-
+## Organizing raw data from 2016 by row to only include
+## race categorization and estimates amount of people within
+## those groups under the poverty line. 
+## NOTICE: Hispanic and Latino categorization is excluded from data
 census_data <- census_data %>%
   gather(key = counties, value = feature, -Label..Grouping.) %>%
   filter(
@@ -30,56 +24,59 @@ census_data <- census_data %>%
     str_detect(Label..Grouping., "Two or more races")
     ) %>%
   filter(
-    str_detect(counties, "Estimate") &
-    str_detect(counties, "Below")
+    str_detect(counties, "Percent") &
+    !str_detect(counties, "Error")
   )
 
 
 ## Rename columns with in new data frame
+colnames(census_data)[1] <- "race_origin"
+colnames(census_data)[2] <- "counties"
+colnames(census_data)[3] <- "percent"
 
-colnames(census_data)[1] = "race_origin"
-colnames(census_data)[2] = "counties"
-colnames(census_data)[3] = "count"
 
-
-## filtering specific county "Adams"
-
+## filtering specific county "Whitman"
 census_data <- census_data %>%
   filter(
-    str_detect(counties, "Adams")
+    str_detect(counties, "Whitman")
   )
-
 View(census_data)
-##  Adams is the manually entered county name
+##  Whitman is the manually entered county name
 ##  Will eventually be replaced by variable to filter
 ##  through all the unique counties 
 
 
-# LOLIPOP CHART FUNCTION
+# PIE CHART FUNCTION
 library("ggplot2")
 
 plot_labels <- labs(
   x = "",
   y = "",
   title = "Distribution of Racial Groups Below the Poverty Line",
-  subtitle = "Adams County Washington",
+  subtitle = "Whitman County Washington, 2016",
   caption = "MappingWA_Students Project",
-  alt = "Distribution of Racial Groups Below the Poverty Line in Adams County, WA"
+  alt = "Distribution of Racial Groups Below the Poverty Line in Adams County, WA, 2016"
 )
 
+## chart function
 pie_chart_race_and_poverty <- function(census_data) {
-  chart <- ggplot(census_data) +
-    geom_histogram(
-      mapping = aes(x = "identity", y = count, fill = race_origin)) + 
-      geom_bar(stat = "", width = 1, color = "white") +
-      coord_polar("y", start = 0)
+  chart <- ggplot(data = census_data) +
+    geom_bar(
+      mapping = aes(x = "", y = percent, fill = race_origin),
+      stat = "identity",
+      width = 1,
+    ) +
+    coord_polar("y", start = 0) +
+    plot_labels +
+    theme(
+      axis.text = element_blank()
+    )
   return(chart)
-} 
+}
 
 p <- pie_chart_race_and_poverty(census_data)
 p
 
-  
 
 
 
