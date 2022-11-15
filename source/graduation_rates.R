@@ -23,10 +23,14 @@ graduation_rates <- graduation_rates %>%
   )
 View(graduation_rates)
 
+bar_chart <- function(graduation_rates) {
+
 plot <- ggplot(data = graduation_rates) +
   geom_col(mapping = aes(
     x = StudentGroup,
     y = GraduationRate
   ))
 plot
-
+}
+p <- bar_chart(graduation_rates)
+p
