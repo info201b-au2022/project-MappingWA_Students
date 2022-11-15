@@ -37,9 +37,9 @@ census_data <- census_data %>%
 
 ## Rename columns with in new data frame
 
-colnames(census_data)[1] = "race_origin"
-colnames(census_data)[2] = "counties"
-colnames(census_data)[3] = "count"
+colnames(census_data)[1] <- "race_origin"
+colnames(census_data)[2] <- "counties"
+colnames(census_data)[3] <- "count"
 
 
 ## filtering specific county "Adams"
@@ -62,29 +62,28 @@ plot_labels <- labs(
   x = "",
   y = "",
   title = "Distribution of Racial Groups Below the Poverty Line",
-  subtitle = "Adams County Washington",
+  subtitle = "Adams County, Washington",
   caption = "MappingWA_Students Project",
-  alt = "Distribution of Racial Groups Below the Poverty Line in Adams County, WA"
+  alt = "Distribution of Racial Groups Below the Poverty Line in Adams County, WA",
+  fill = "Racial Group"
 )
 
 pie_chart_race_and_poverty <- function(census_data) {
-  chart <- ggplot(census_data) +
-    geom_histogram(
-      mapping = aes(x = "identity", y = count, fill = race_origin)) + 
-      geom_bar(stat = "", width = 1, color = "white") +
-      coord_polar("y", start = 0)
+  chart <- ggplot(data = census_data) +
+    #geom_col(
+#      coord_polar("y", start = 0)
+    #) +
+    geom_bar(
+      mapping = aes(x = "", y = count, fill = race_origin),
+      stat = "identity",
+      width = 1,
+    ) +
+    coord_polar("y", start = 0) +
+    plot_labels +
+    theme(
+      axis.text = element_blank()
+    )
   return(chart)
-} 
+}
 
 p <- pie_chart_race_and_poverty(census_data)
-p
-
-  
-
-
-
-
-
-
-
-
