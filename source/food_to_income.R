@@ -12,7 +12,7 @@
 #   per county
 
 # Load libraries and clear memory cells
-rm(list = ls())
+# rm(list = ls())
 library(dplyr)
 library(tidyr)
 library(stringr)
@@ -73,7 +73,7 @@ load_food_insecurity_data <- function(year) {
 # for each county specified in the given dataframe. The result of this function
 # represents the data for the given year.
 create_food_chart <- function(df, year) {
-    lab_title <- "Median Income versus Percent Child Food Insecurity Across Washington Counties,"
+    lab_title <- "Median Income Versus Percent Child Food Insecurity Across Washington Counties,"
     food_df <- left_join(df, median_incomes, by = "county")
     top_insecure <- food_df %>%
         mutate(county = toupper(county)) %>%
@@ -104,5 +104,5 @@ create_food_chart <- function(df, year) {
 }
 
 # Testing code
-test <- load_food_insecurity_data(2016)
-test2 <- create_food_chart(test, 2016)
+# test <- load_food_insecurity_data(2016)
+# test2 <- create_food_chart(test, 2016)

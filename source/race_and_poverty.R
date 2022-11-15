@@ -1,9 +1,9 @@
 # How are Race and Poverty Related?
 # cvs: https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/census_bureau_data/us_census_bureau_2016.csv
 
-rm(list=ls())
+# rm(list=ls())
 census_data <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/census_bureau_data/us_census_bureau_2016.csv", stringsAsFactors = FALSE)
-View(census_data)
+# View(census_data)
 
 # DATA WRANGLING
 library("tidyr")
@@ -39,7 +39,7 @@ census_data <- census_data %>%
   filter(
     str_detect(counties, "Whitman")
   )
-View(census_data)
+# View(census_data)
 ##  Whitman is the manually entered county name
 ##  Will eventually be replaced by variable to filter
 ##  through all the unique counties 
