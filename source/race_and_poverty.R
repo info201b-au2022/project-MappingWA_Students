@@ -35,7 +35,7 @@ colnames(census_data)[2] <- "counties"
 colnames(census_data)[3] <- "percent"
 
 ## filtering specific county "Whitman"
-census_data <- census_data %>%
+whitman_county <- census_data %>%
   filter(
     str_detect(counties, "Whitman")
   )

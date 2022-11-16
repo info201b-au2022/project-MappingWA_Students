@@ -17,12 +17,17 @@ source("../source/summary.R")
 
 ```{r variable_initialization, echo = FALSE}
 # Load charts into variables for ease of access.
-# Create food_2016 dataframe.
+# Create food insecurity dataframe 2016 and generate plot.
 food_df <- load_food_insecurity_data(2016)
 food_insecurity_plot_2016 <- create_food_chart(food_df, 2016)
 
+# Grab graduation rates dataframe and generate plot.
 grad_rates <- graduation_rates
 grad_rates_plot <- bar_chart(grad_rates)
+
+# Grab race and poverty dataframe and generate plot.
+whitman_county_data <- whitman_county
+race_poverty_plot <- pie_chart_race_and_poverty(whitman_county_data)
 ```
 
 ## **ANALYSIS SUMMARY:** 
@@ -31,15 +36,53 @@ This is where our dynamic paragraph will go :)
 
 ## **PLOTS AND CHARTS**
 
-**Chart 1:** Comparison of Relative Child Food Insecurity to Median Income in Washington
+**Chart 1:** Comparison of Relative Child Food Insecurity Rates to Median Income in Washington
 
 ```{r chart1, echo = FALSE}
 plot(food_insecurity_plot_2016)
 ```
 
-This scatter plot illustrates the relation between **median household income** and **child food insecurity rates** across **Washington counties** for the year **2016**. The downward trend suggests that there exists some correlation between the continuous variables; that is, _as median income increases, the relative percentage of children facing food insecurity decreases for a given county_. Of particular note is the Whitman County data point: this county had one of the highest food insecurity rates and one of the lowest household median incomes out of all Washington counties in 2016. The plot further reinforces our initial hypothesis that indeed, median income household bears some influence on students' reliable access to food. Abiding by the principle that no student should have to worry about their next meal while attending school, these findings are significant in that they illustrate the potential economic struggles faced by parents in families federally recognized as low income.
+This scatter plot illustrates the relation between **median household income and
+child food insecurity rates across Washington counties in 2016**. The downward
+trend suggests that there exists some correlation between the continuous variables;
+that is, _as median income increases, the relative percentage of children facing
+food insecurity decreases for a given county_. Of particular note is the Whitman
+County data point: this county had one of the highest food insecurity rates and
+one of the lowest household median incomes out of all Washington counties in
+2016. The plot supports our initial hypothesis that indeed, median income
+household bears some influence on students' reliable access to food. Abiding by
+the principle that no student should have to worry about their next meal while
+attending school, these findings are significant in that they illustrate the
+potential economic struggles faced by parents in families federally recognized
+as low income.
+
+**Chart 2:** Bar Chart of Number of Students Graduating by Race in Washington State, 2019-2020
 
 **Chart 2:** 
 ```{r chart2, echo = FALSE}
 plot(grad_rates_plot)
 ```
+
+The bar chart above represents the 2019-20 graduation rates of students by
+counties in Washington. This chart was included to illustrate the correlation
+between the graduation rate of students by county and their racial identity.
+Understanding this correlation is important in order to determine what equitable
+resources can be given to different racial groups. The chart concludes that
+white students have the highest graduation rate and native Hawaiian/ Pacific
+Islander being the lowest graduation rate.
+
+**Chart 3:** Pie Chart of Racial Distributions for Peoples Identified as Being Below the Poverty Line in Whitman County, Washington, 2016
+
+```{r chart3, echo = FALSE}
+plot(race_poverty_plot)
+```
+
+This pie chart shows the percentage of racial groups that stand below the poverty
+level in Whitman County, Washington. The data is based on data from 2016. The
+section color relates to the race of the people. The section size relates to the
+percentage of that race that are below the poverty level. This chart was included
+to show the relationship between poverty and race in Washington counties to
+understand equitable change that needs to be made for certain groups based on
+past trends. The majority of people below the poverty level in Whitman County
+are Alaskan and American Natives. The least percentage of people below the
+poverty level are white and Pacific Islander peoples.

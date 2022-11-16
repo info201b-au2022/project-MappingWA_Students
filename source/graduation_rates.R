@@ -18,19 +18,34 @@ graduation_rates <- graduation_rates %>% drop_na()
 # View(graduation_rates)
 
 graduation_rates <- graduation_rates %>%
-  filter(
-    !str_detect(StudentGroup, "Hispanic")
-  )
-# View(graduation_rates)
+  filter(!str_detect(StudentGroup, "Hispanic"))
+
+# Rename student group values to fit in chart display.
+graduation_rates[graduation_rates == "American Indian/ Alaskan Native"] <-
+  "American Indian/\nAlaskan Native"
+graduation_rates[graduation_rates == "Black/ African American"] <-
+  "Black/\nAfrican American"
+graduation_rates[graduation_rates == "Native Hawaiian/ Other Pacific Islander"] <-
+  "Native Hawaiian/\nOther Pacific Islander"
 
 bar_chart <- function(graduation_rates) {
 
 plot <- ggplot(data = graduation_rates) +
-  geom_col(mapping = aes(
-    x = StudentGroup,
-    y = GraduationRate
-  ))
-#  plot
+  geom_col(
+    mapping = aes(
+      x = StudentGroup,
+      y = GraduationRate
+    )
+  ) +
+  scale_x_discrete(
+    guide = guide_axis(angle = 45)
+  ) +
+  labs(
+    x = "Racial Group",
+    y = "Number of Graduating Students",
+  )
+  
 }
-p <- bar_chart(graduation_rates)
-p
+
+# Testing
+chart <- bar_chart(graduation_rates)
