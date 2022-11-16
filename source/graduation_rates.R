@@ -30,7 +30,7 @@ plot <- ggplot(data = graduation_rates) +
     x = StudentGroup,
     y = GraduationRate
   ))
-plot
+#  plot
 }
 p <- bar_chart(graduation_rates)
 p

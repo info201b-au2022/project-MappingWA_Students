@@ -3,7 +3,7 @@ library(dplyr)
 
 rm(list = ls())
 # CHART 1 - Richard
-source("source/food_to_income.R")
+source("../source/food_to_income.R")
 median_incomes <- load_median_incomes()
 food_2016 <- load_food_insecurity_data(2016)
 combined_income_food <- median_incomes %>% left_join(food_2016, by = "county")
@@ -32,7 +32,7 @@ low_median_high_insecure <- combined_income_food %>%
 # the highest median income, lowest food insecure vs. Whitman (its opposite)?
 
 # CHART 2 - Ella
-source("source/race_and_poverty.R")
+source("../source/race_and_poverty.R")
 # What race has the highest percentage of people below the poverty level in
 # Whitman county?
 # View(census_data)
@@ -50,7 +50,7 @@ least_below_poverty_whitman <- census_data %>%
 least_below_poverty_whitman
 
 # CHART 3 - Adora
-source("source/graduation_rates.R")
+source("../source/graduation_rates.R")
 
 # report_data <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/ospi_report_card_data/Report_Card_Graduation_2019-20.csv")
 # View(report_data)
@@ -73,11 +73,11 @@ county_highest_rate <- report_data %>%
   filter(GraduationRate == max(GraduationRate, na.rm = TRUE)) %>%
   pull(County) %>%
   unique()
-print(county_highest_rate)
+# print(county_highest_rate)
 
 # What is the lowest graduation rate in Washington? (variable: lowest_grad_rate)
 lowest_grad_rate <- report_data %>%
   filter(GraduationRate == min(GraduationRate, na.rm = TRUE)) %>%
   pull(GraduationRate) %>%
   unique()
-print(lowest_grad_rate)
+# print(lowest_grad_rate)

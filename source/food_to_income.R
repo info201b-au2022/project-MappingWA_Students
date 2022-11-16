@@ -24,7 +24,7 @@ library(ggrepel)
 # -----------------------------------------------------------------------------
 # Load the median incomes csv file and insert a column specifying the
 # the relevant county for each observation.
-median_incomes <- read.csv("data/wa_county_median_incomes.csv")
+median_incomes <- read.csv("../data/wa_county_median_incomes.csv")
 median_incomes <- median_incomes %>%
     filter(Race == "Total") %>%
     filter(ID.Year == 2016) %>%
@@ -50,7 +50,7 @@ load_food_insecurity_data <- function(year) {
     }
     food_df <- read_excel(
         paste0(
-            "data/map_the_meal_gap_data/meal_gap_", year, ".xlsx"
+            "../data/map_the_meal_gap_data/meal_gap_", year, ".xlsx"
         )
     )
     food_df <- food_df %>%
