@@ -29,7 +29,8 @@ grad_rates_plot <- bar_chart(grad_rates)
 whitman_county_data <- whitman_county
 race_poverty_plot <- pie_chart_race_and_poverty(whitman_county_data)
 
-aggregate_df <- aggregate_data
+summary_table <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/aggregate_data.csv")
+
 
 ```
 
@@ -41,8 +42,8 @@ The top five counties that have the lowest median incomes and highest percentage
 
 ```{r summarytable, echo = FALSE}
 library("knitr")
-summarytable <- aggregate_df
-kable(summarytable)
+
+kable(summary_table)
 ```
 This aggregate table shows the correlation between race, county, household income and graduation rate.
 The reason why this table is included is because it looks at the larger picture of our topic: How
