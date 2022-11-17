@@ -55,12 +55,6 @@ source("../source/graduation_rates.R")
 # report_data <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/ospi_report_card_data/Report_Card_Graduation_2019-20.csv")
 # View(report_data)
 
-graduation_rates <- report_data %>%
-  filter(
-    str_detect(StudentGroupType, "Race")
-  )
-# View(graduation_rates)
-
 graduation_rates <- graduation_rates %>%
   select(County, StudentGroup, GraduationRate)
 # View(graduation_rates)
