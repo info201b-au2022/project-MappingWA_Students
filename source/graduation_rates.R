@@ -28,23 +28,22 @@ graduation_rates[graduation_rates == "Black/ African American"] <-
 graduation_rates[graduation_rates == "Native Hawaiian/ Other Pacific Islander"] <-
   "Native Hawaiian/\nOther Pacific Islander"
 
-bar_chart <- function(graduation_rates) {
-
-plot <- ggplot(data = graduation_rates) +
-  geom_col(
-    mapping = aes(
-      x = StudentGroup,
-      y = GraduationRate
+bar_chart <- function(df) {
+  plot <- ggplot(data = df) +
+    geom_col(
+      mapping = aes(
+        x = StudentGroup,
+        y = GraduationRate
+      )
+    ) +
+    scale_x_discrete(
+      guide = guide_axis(angle = 45)
+    ) +
+    labs(
+      x = "Racial Group",
+      y = "Number of Graduating Students",
     )
-  ) +
-  scale_x_discrete(
-    guide = guide_axis(angle = 45)
-  ) +
-  labs(
-    x = "Racial Group",
-    y = "Number of Graduating Students",
-  )
-  
+  return(plot)
 }
 
 # Testing

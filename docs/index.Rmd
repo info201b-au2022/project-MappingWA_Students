@@ -32,7 +32,9 @@ race_poverty_plot <- pie_chart_race_and_poverty(whitman_county_data)
 
 ## **ANALYSIS SUMMARY:** 
 
-This is where our dynamic paragraph will go :)
+The top five counties that have the lowest median incomes and highest percentages of food insecure children in Washington are `low_median_high_insecure`. Whitman county faces the highest percentage of food insecure children as well as lowest median income households. A factor about student’s identities that affects their socioeconomic status is their race. The racial group with the highest percentage of people below the poverty level in Whitman county was `most_below_poverty_whitman` peoples. The racial group with the lowest percentage of people below the poverty level was `least_below_poverty_whitman`. Even further, racial identity connects with graduation rates across Washington. The county with the highest graduation rate in Washington is ‘county_highest_rate’. The lowest graduation rate in Washington is ‘lowest_grad_rate’.
+
+## SUMMARY TABLE
 
 ## **PLOTS AND CHARTS**
 
@@ -56,9 +58,10 @@ attending school, these findings are significant in that they illustrate the
 potential economic struggles faced by parents in families federally recognized
 as low income.
 
+<br>
+
 **Chart 2:** Bar Chart of Number of Students Graduating by Race in Washington State, 2019-2020
 
-**Chart 2:** 
 ```{r chart2, echo = FALSE}
 plot(grad_rates_plot)
 ```
@@ -70,6 +73,8 @@ Understanding this correlation is important in order to determine what equitable
 resources can be given to different racial groups. The chart concludes that
 white students have the highest graduation rate and native Hawaiian/ Pacific
 Islander being the lowest graduation rate.
+
+<br>
 
 **Chart 3:** Pie Chart of Racial Distributions for Peoples Identified as Being Below the Poverty Line in Whitman County, Washington, 2016
 
