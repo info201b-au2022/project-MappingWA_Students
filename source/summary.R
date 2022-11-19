@@ -37,17 +37,17 @@ source("../source/race_and_poverty.R")
 # Whitman county?
 # View(census_data)
 
-most_below_poverty_whitman <- census_data %>%
+most_below_poverty_whitman <- whitman_county %>%
   filter(percent == max(percent, na.rm = TRUE)) %>%
-  pull(race)
-most_below_poverty_whitman
+  pull(race) %>%
+  str_sub(5, -7)
 
 # What race has the lowest percentage of people below the poverty level in
 # Whitman county?
-least_below_poverty_whitman <- census_data %>%
+least_below_poverty_whitman <- whitman_county %>%
   filter(percent == min(percent, na.rm = TRUE)) %>%
-  pull(race)
-least_below_poverty_whitman
+  pull(race) %>%
+  str_sub(5, -7)
 
 # CHART 3 - Adora
 source("../source/graduation_rates.R")
@@ -66,12 +66,11 @@ graduation_rates <- graduation_rates %>% drop_na()
 county_highest_rate <- report_data %>%
   filter(GraduationRate == max(GraduationRate, na.rm = TRUE)) %>%
   pull(County) %>%
-  unique()
-# print(county_highest_rate)
+  unique() %>%
+  paste("County")
 
 # What is the lowest graduation rate in Washington? (variable: lowest_grad_rate)
 lowest_grad_rate <- report_data %>%
   filter(GraduationRate == min(GraduationRate, na.rm = TRUE)) %>%
   pull(GraduationRate) %>%
   unique()
-# print(lowest_grad_rate)
