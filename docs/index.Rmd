@@ -30,6 +30,8 @@ whitman_county_data <- whitman_county
 race_poverty_plot <- pie_chart_race_and_poverty(whitman_county_data)
 
 most_insecure_counties <- paste(low_median_high_insecure, sep = ", ")
+
+summary_table <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/aggregate_data.csv")
 ```
 
 ## **ANALYSIS SUMMARY:** 
@@ -37,6 +39,20 @@ most_insecure_counties <- paste(low_median_high_insecure, sep = ", ")
 The top five counties that have the lowest median incomes and highest percentages of food insecure children in Washington are `r most_insecure_counties`. Whitman county faces the highest percentage of food insecure children as well as lowest median income households. A factor about student’s identities that affects their socioeconomic status is their race. The racial group with the highest percentage of people below the poverty level in Whitman county was `most_below_poverty_whitman` peoples. The racial group with the lowest percentage of people below the poverty level was `least_below_poverty_whitman`. Even further, racial identity connects with graduation rates across Washington. The county with the highest graduation rate in Washington is ‘county_highest_rate’. The lowest graduation rate in Washington is ‘lowest_grad_rate’.
 
 ## SUMMARY TABLE
+
+```{r summarytable, echo = FALSE}
+library("knitr")
+
+kable(summary_table)
+```
+This aggregate table shows the correlation between race, county, household income and graduation rate.
+The reason why this table is included is because it looks at the larger picture of our topic: How
+Financial Security Affects Student Success at School. The table proves that intersectionality within
+race, income level and the neighborhood that you live can predict -to some extent how well you will
+be able to function in school. According to the table, white students are more likely to graduate 
+and are more likely to have a high income compared to native american students. 
+
+
 
 ## **PLOTS AND CHARTS**
 
