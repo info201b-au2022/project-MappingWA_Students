@@ -122,23 +122,16 @@ race_data_2020 <- census_data_2020 %>%
 View(race_data_2020)
 
 # Combine all data frames of the different years
-
-
 census_data <- rbind(race_data_2016, race_data_2017, race_data_2018, race_data_2019, race_data_2020)
 View(census_data)
 
 
---------------------------------------------------------------------------------
+## filtering specific county "Whitman" in 2016 for RMD HTML FILE
+whitman_county_2016 <- census_data %>%
+  filter(str_detect(counties, "Whitman")) %>%
+  filter(year == "2016")
+View(whitman_county_2016)
 
-## filtering specific county "Whitman"
-whitman_county <- census_data %>%
-  filter(
-    str_detect(counties, "Whitman")
-  )
-# View(census_data)
-##  Whitman is the manually entered county name
-##  Will eventually be replaced by variable to filter
-##  through all the unique counties 
 
 
 # PIE CHART FUNCTION
@@ -156,7 +149,7 @@ plot_labels <- labs(
 
 ## chart function
 pie_chart_race_and_poverty <- function(census_data) {
-  chart <- ggplot(data = census_data) +
+  chart <- ggplot(data = whitman_county_2016) +
     geom_bar(
       mapping = aes(x = "", y = percent, fill = race),
       stat = "identity",
