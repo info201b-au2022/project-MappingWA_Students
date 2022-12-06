@@ -112,7 +112,7 @@ race_data_2020 <- census_data_2020 %>%
       !str_detect(counties, "Error")
   ) %>%
   mutate(percent = gsub("%$","",feature)) %>%
-  mutate(year = 2020:2020) %>%
+  mutate(new_col = c(rep(2020, nrow(race_data_2020)))) %>%
   rename(race = Label..Grouping.) %>%
   select(race, counties, percent)
 View(race_data_2020)
