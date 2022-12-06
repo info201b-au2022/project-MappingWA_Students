@@ -1,19 +1,19 @@
 # How are Race and Poverty Related?
-# cvs: https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/census_bureau_data/us_census_bureau_2016.csv
 
-# rm(list=ls())
-census_data <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/census_bureau_data/us_census_bureau_2016.csv", stringsAsFactors = FALSE)
-# View(census_data)
-
-# DATA WRANGLING
 library("tidyr")
+library("tidyverse")
 library("stringr")
 
-## Organizing raw data from 2016 by row to only include
-## race categorization and estimates amount of people within
-## those groups under the poverty line. 
-## NOTICE: Hispanic and Latino categorization is excluded from data
-census_data <- census_data %>%
+# all data files by year
+census_data_2016 <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/census_bureau_data/us_census_bureau_2016.csv", stringsAsFactors = FALSE)
+census_data_2017 <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/census_bureau_data/us_census_bureau_2017.csv", stringsAsFactors = FALSE)
+census_data_2018 <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/census_bureau_data/us_census_bureau_2018.csv", stringsAsFactors = FALSE)
+census_data_2019 <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/census_bureau_data/us_census_bureau_2019.csv", stringsAsFactors = FALSE)
+census_data_2020 <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/census_bureau_data/us_census_bureau_2020.csv", stringsAsFactors = FALSE)
+
+
+# 2016 data
+race_data_2016 <- census_data_2016 %>%
   gather(key = counties, value = feature, -Label..Grouping.) %>%
   filter(
     str_detect(Label..Grouping., "White alone$") |
@@ -26,13 +26,100 @@ census_data <- census_data %>%
   filter(
     str_detect(counties, "Percent") &
     !str_detect(counties, "Error")
-  )
+  ) %>%
+  mutate(percent = gsub("%$","",feature)) %>%
+  rename(race = Label..Grouping.) %>%
+  select(race, counties, percent)
+View(race_data_2016)
 
 
-## Rename columns with in new data frame
-colnames(census_data)[1] <- "race"
-colnames(census_data)[2] <- "counties"
-colnames(census_data)[3] <- "percent"
+# 2017 data
+race_data_2017 <- census_data_2017 %>%
+  gather(key = counties, value = feature, -Label..Grouping.) %>%
+  filter(
+    str_detect(Label..Grouping., "White alone$") |
+      str_detect(Label..Grouping., "Black") |
+      str_detect(Label..Grouping., "Native") |
+      str_detect(Label..Grouping., "Asian") |
+      str_detect(Label..Grouping., "Some other race") |
+      str_detect(Label..Grouping., "Two or more races")
+  ) %>%
+  filter(
+    str_detect(counties, "Percent") &
+      !str_detect(counties, "Error")
+  ) %>%
+  mutate(percent = gsub("%$","",feature)) %>%
+  rename(race = Label..Grouping.) %>%
+  select(race, counties, percent)
+View(race_data_2017)
+
+
+# 2018 data
+race_data_2018 <- census_data_2018 %>%
+  gather(key = counties, value = feature, -Label..Grouping.) %>%
+  filter(
+    str_detect(Label..Grouping., "White alone$") |
+      str_detect(Label..Grouping., "Black") |
+      str_detect(Label..Grouping., "Native") |
+      str_detect(Label..Grouping., "Asian") |
+      str_detect(Label..Grouping., "Some other race") |
+      str_detect(Label..Grouping., "Two or more races")
+  ) %>%
+  filter(
+    str_detect(counties, "Percent") &
+      !str_detect(counties, "Error")
+  ) %>%
+  mutate(percent = gsub("%$","",feature)) %>%
+  rename(race = Label..Grouping.) %>%
+  select(race, counties, percent)
+View(race_data_2018)
+
+
+# 2019 data 
+race_data_2019 <- census_data_2019 %>%
+  gather(key = counties, value = feature, -Label..Grouping.) %>%
+  filter(
+    str_detect(Label..Grouping., "White alone$") |
+      str_detect(Label..Grouping., "Black") |
+      str_detect(Label..Grouping., "Native") |
+      str_detect(Label..Grouping., "Asian") |
+      str_detect(Label..Grouping., "Some other race") |
+      str_detect(Label..Grouping., "Two or more races")
+  ) %>%
+  filter(
+    str_detect(counties, "Percent") &
+      !str_detect(counties, "Error")
+  ) %>%
+  mutate(percent = gsub("%$","",feature)) %>%
+  rename(race = Label..Grouping.) %>%
+  select(race, counties, percent)
+View(race_data_2019)
+
+
+# 2020 data
+race_data_2020 <- census_data_2020 %>%
+  gather(key = counties, value = feature, -Label..Grouping.) %>%
+  filter(
+    str_detect(Label..Grouping., "White alone$") |
+      str_detect(Label..Grouping., "Black") |
+      str_detect(Label..Grouping., "Native") |
+      str_detect(Label..Grouping., "Asian") |
+      str_detect(Label..Grouping., "Some other race") |
+      str_detect(Label..Grouping., "Two or more races")
+  ) %>%
+  filter(
+    str_detect(counties, "Percent") &
+      !str_detect(counties, "Error")
+  ) %>%
+  mutate(percent = gsub("%$","",feature)) %>%
+  mutate(year = 2020:2020) %>%
+  rename(race = Label..Grouping.) %>%
+  select(race, counties, percent)
+View(race_data_2020)
+
+
+
+--------------------------------------------------------------------------------
 
 ## filtering specific county "Whitman"
 whitman_county <- census_data %>%
