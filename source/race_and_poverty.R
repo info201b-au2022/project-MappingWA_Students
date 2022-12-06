@@ -17,19 +17,20 @@ race_data_2016 <- census_data_2016 %>%
   gather(key = counties, value = feature, -Label..Grouping.) %>%
   filter(
     str_detect(Label..Grouping., "White alone$") |
-    str_detect(Label..Grouping., "Black") |
-    str_detect(Label..Grouping., "Native") |
-    str_detect(Label..Grouping., "Asian") |
-    str_detect(Label..Grouping., "Some other race") |
-    str_detect(Label..Grouping., "Two or more races")
-    ) %>%
+      str_detect(Label..Grouping., "Black") |
+      str_detect(Label..Grouping., "Native") |
+      str_detect(Label..Grouping., "Asian") |
+      str_detect(Label..Grouping., "Some other race") |
+      str_detect(Label..Grouping., "Two or more races")
+  ) %>%
   filter(
     str_detect(counties, "Percent") &
-    !str_detect(counties, "Error")
+      !str_detect(counties, "Error")
   ) %>%
   mutate(percent = gsub("%$","",feature)) %>%
+  mutate(year = c(rep(2016, nrow(race_data_2016)))) %>%
   rename(race = Label..Grouping.) %>%
-  select(race, counties, percent)
+  select(year, race, counties, percent)
 View(race_data_2016)
 
 
@@ -49,8 +50,9 @@ race_data_2017 <- census_data_2017 %>%
       !str_detect(counties, "Error")
   ) %>%
   mutate(percent = gsub("%$","",feature)) %>%
+  mutate(year = c(rep(2017, nrow(race_data_2017)))) %>%
   rename(race = Label..Grouping.) %>%
-  select(race, counties, percent)
+  select(year, race, counties, percent)
 View(race_data_2017)
 
 
@@ -70,8 +72,9 @@ race_data_2018 <- census_data_2018 %>%
       !str_detect(counties, "Error")
   ) %>%
   mutate(percent = gsub("%$","",feature)) %>%
+  mutate(year = c(rep(2018, nrow(race_data_2018)))) %>%
   rename(race = Label..Grouping.) %>%
-  select(race, counties, percent)
+  select(year, race, counties, percent)
 View(race_data_2018)
 
 
@@ -91,8 +94,9 @@ race_data_2019 <- census_data_2019 %>%
       !str_detect(counties, "Error")
   ) %>%
   mutate(percent = gsub("%$","",feature)) %>%
+  mutate(year = c(rep(2019, nrow(race_data_2019)))) %>%
   rename(race = Label..Grouping.) %>%
-  select(race, counties, percent)
+  select(year, race, counties, percent)
 View(race_data_2019)
 
 
@@ -112,9 +116,9 @@ race_data_2020 <- census_data_2020 %>%
       !str_detect(counties, "Error")
   ) %>%
   mutate(percent = gsub("%$","",feature)) %>%
-  mutate(new_col = c(rep(2020, nrow(race_data_2020)))) %>%
+  mutate(year = c(rep(2020, nrow(race_data_2020)))) %>%
   rename(race = Label..Grouping.) %>%
-  select(race, counties, percent)
+  select(year, race, counties, percent)
 View(race_data_2020)
 
 
