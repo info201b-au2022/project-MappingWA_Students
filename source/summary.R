@@ -1,12 +1,12 @@
-library(tidyverse)
+library(tidyr)
 library(dplyr)
 
-rm(list = ls())
 # CHART 1 - Richard
 source("../source/food_to_income.R")
-median_incomes <- load_median_incomes()
+summary_median_incomes <- get_median_incomes(2016)
 food_2016 <- load_food_insecurity_data(2016)
-combined_income_food <- median_incomes %>% left_join(food_2016, by = "county")
+combined_income_food <- summary_median_incomes %>%
+  left_join(food_2016, by = "county")
 
 # Which counties had the lowest median incomes in Washington in 2016?
 lowest_median_incomes <- combined_income_food %>%

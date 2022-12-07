@@ -23,39 +23,58 @@ library(ggrepel)
 # -----------------------------------------------------------------------------
 # Load the median incomes csv file and insert a column specifying the
 # the relevant county for each observation.
-print(getwd())
 median_incomes <- read.csv("../data/wa_county_median_incomes.csv")
-median_incomes <- median_incomes %>%
-  filter(Race == "Total") %>%
-  filter(ID.Year == 2016) %>%
-  mutate(county =
-           tolower(
-             str_sub(
-               Geography,
-               0,
-               nchar(Geography) - nchar(" County, WA")
+
+# Function for filtering median incomes for a particular year
+get_median_incomes <- function(year) {
+  if (year < 2016 || year > 2020) {
+    return(null)
+  }
+  incomes <- median_incomes %>%
+    filter(Race == "Total") %>%
+    filter(ID.Year == year) %>%
+    mutate(county =
+             tolower(
+               str_sub(
+                 Geography,
+                 0,
+                 nchar(Geography) - nchar(" County, WA")
+               )
              )
-           )
-  )
+    )
+  return(incomes)
+}
 
 # Function to retrieve a copy of the median incomes csv file for external use.
-load_median_incomes <- function() {
-  return(median_incomes)
-}
+#load_median_incomes <- function() {
+#  return(median_incomes)
+#}
 
 # Function for loading food insecurity data for the given year.
 load_food_insecurity_data <- function(year) {
   if (year < 2016 || year > 2020) {
     return(NULL)
   }
+  skip <- 0
+  county_sheet <- paste(year, "County")
+  child_rate_col <- paste(year, "Child food insecurity rate")
+  if (year == 2018) {
+    skip <- 1
+  }
+  if (year == 2020) {
+    county_sheet <- "County"
+    child_rate_col <- "Child Food Insecurity Rate (1 Year)"
+  }
   food_df <- read_excel(
     paste0(
       "../data/map_the_meal_gap_data/meal_gap_", year, ".xlsx"
-    )
+    ),
+    skip = skip,
+    sheet = county_sheet
   )
   food_df <- food_df %>%
-    filter(State == "WA") %>%
-    rename(food_insecurity_rate = paste(year, "Child food insecurity rate")) %>%
+    filter(`State` == "WA") %>%
+    rename(food_insecurity_rate = child_rate_col) %>%
     rename(location = "County, State") %>%
     mutate(county =
              tolower(
@@ -73,8 +92,12 @@ load_food_insecurity_data <- function(year) {
 # for each county specified in the given dataframe. The result of this function
 # represents the data for the given year.
 create_food_chart <- function(df, year) {
-  lab_title <- "Median Income Versus Percent Child Food Insecurity Across Washington Counties,"
-  food_df <- left_join(df, median_incomes, by = "county")
+  if (year < 2016 || year > 2020) {
+    return(null)
+  }
+  lab_title <- "Median Income Versus Percent Child Food Insecurity Across Washington Counties"
+  year_median_incomes <- get_median_incomes(year)
+  food_df <- left_join(df, year_median_incomes, by = "county")
   top_insecure <- food_df %>%
     mutate(county = toupper(county)) %>%
     top_n(5, wt = food_insecurity_rate)
@@ -102,7 +125,3 @@ create_food_chart <- function(df, year) {
       y = "Percentage of Children Living with Food Insecurity"
     )
 }
-
-# Testing code
-# test <- load_food_insecurity_data(2016)
-# test2 <- create_food_chart(test, 2016)

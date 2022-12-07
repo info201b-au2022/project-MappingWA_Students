@@ -172,7 +172,7 @@ report_tab <- tabPanel(
           addressing the overarching issues of race, income, and student
           graduation rates:"),
         HTML("<ol>
-               <li><em>How might food insecurity be related to students???
+               <li><em>How might food insecurity be related to students'
                socioeconomic status?</em></li>
                <li><em>How are race and poverty related?</em></li>
                <li><em>How are racial identity and academic performance in school

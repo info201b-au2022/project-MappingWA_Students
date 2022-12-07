@@ -1,3 +1,43 @@
+# A file containing the overall server for this project app.
+
+# Load the necessary libraries
+library(dplyr)
+library(tidyr)
+library(plotly)
+
+# Source the necessary files
+source("../source/food_to_income.R")
+
+# Food and median income dataframes for use and to avoid repeated excel
+# file loading
+food_2016 <- load_food_insecurity_data(2016)
+food_2017 <- load_food_insecurity_data(2017)
+food_2018 <- load_food_insecurity_data(2018)
+food_2019 <- load_food_insecurity_data(2019)
+food_2020 <- load_food_insecurity_data(2020)
+
+median_incomes_2016 <- get_median_incomes(2016)
+median_incomes_2017 <- get_median_incomes(2017)
+median_incomes_2018 <- get_median_incomes(2018)
+median_incomes_2019 <- get_median_incomes(2019)
+median_incomes_2020 <- get_median_incomes(2020)
+
 server <- function(input, output) {
-  
+  output$food_plot <- renderPlotly({
+    plot_data <- get(paste0("food_", input$food_year)) %>%
+      left_join(get(paste0("median_incomes_", input$food_year)), by = "county")
+    plot <- plot_ly(
+      data = plot_data,
+      x = ~Household.Income.by.Race,
+      y = ~food_insecurity_rate,
+      type = "scatter",
+      mode = "markers"
+    ) %>%
+      layout(
+        title = "Median Income Versus Percent Child Food Insecurity <br> Across Washington Counties",
+        xaxis = list(title = "Median Income in US Dollars"),
+        yaxis = list(title = "Percentage of Children Living <br> with Food Insecurity")
+      )
+    return(plot)
+  })
 }

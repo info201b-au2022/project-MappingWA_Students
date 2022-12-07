@@ -1,4 +1,5 @@
 # Load the necessary source files
+source("../source/app_server.R")
 source("../source/tab_food_to_income.R")
 source("../source/tab_report.R")
 source("../source/tab_intro.R")
