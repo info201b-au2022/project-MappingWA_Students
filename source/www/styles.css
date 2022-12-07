@@ -1,0 +1,12 @@
+/* This file contains various CSS stylings for the project app. */
+
+
+#report_sidebar {
+  position: fixed;
+  font-weight: bold;
+}
+
+#report_sidebar a {
+  color: black;
+  font-weight: normal;
+}

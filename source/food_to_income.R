@@ -11,8 +11,7 @@
 # - compiling average statistics on proportion food insecure students
 #   per county
 
-# Load libraries and clear memory cells
-# rm(list = ls())
+# Load the necessary libraries
 library(dplyr)
 library(tidyr)
 library(stringr)
@@ -24,6 +23,7 @@ library(ggrepel)
 # -----------------------------------------------------------------------------
 # Load the median incomes csv file and insert a column specifying the
 # the relevant county for each observation.
+print(getwd())
 median_incomes <- read.csv("../data/wa_county_median_incomes.csv")
 median_incomes <- median_incomes %>%
     filter(Race == "Total") %>%
@@ -55,7 +55,7 @@ load_food_insecurity_data <- function(year) {
     )
     food_df <- food_df %>%
         filter(State == "WA") %>%
-        rename(food_insecurity_rate = paste(year, "Food Insecurity Rate")) %>%
+        rename(food_insecurity_rate = paste(year, "Child food insecurity rate")) %>%
         rename(location = "County, State") %>%
         mutate(county =
             tolower(
