@@ -40,7 +40,9 @@ tabPanel("Chart 3",
                        specific year. Users have the ablity to see how the chart varies by year by selecting one of 
                        the year options between 2016 and 2020 using the year selector."), 
                      h4("The Takeaway"), 
-                     p(""))
+                     p("Add something here when the charts render. Talk about what is says about poverty and race in 
+                       Washington. Maybe search if white people are the largest racial group in Washington. How does
+                       it relate to overall question? and how does it bring us closer to an analysis."))
          )
 )
 
@@ -77,5 +79,3 @@ server <- function(input, output){
       )
   })
 }
-
-
