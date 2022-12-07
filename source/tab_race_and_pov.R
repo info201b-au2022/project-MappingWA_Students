@@ -49,7 +49,6 @@ tabPanel("Chart 3",
 
 
 # What goes in Server
-
 server <- function(input, output){
   output$pieChart <- renderPlotly({
     update <- census_data %>%
