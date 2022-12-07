@@ -4,17 +4,17 @@
 source("race_and_poverty.R")
 
 
-# what is the average percentage of all racial groups in the year 2019
-test_2019 <- census_data %>%
-  mutate(percent_num = as.numeric(percent)) %>%
-  select(year, race, percent_num) %>%
-  filter(year == "2019") %>%
-  group_by(race) %>%
-  summarize(avg_percent = mean(percent_num, na.rm = TRUE))
-View(test_2019)
+# # what is the average percentage of all racial groups in the year 2019
+# test_2019 <- census_data %>%
+#   mutate(percent_num = as.numeric(percent)) %>%
+#   select(year, race, percent_num) %>%
+#   filter(year == "2019") %>%
+#   group_by(race) %>%
+#   summarize(avg_percent = mean(percent_num, na.rm = TRUE))
+# View(test_2019)
 
+# What goes in the UI
 
-# What year to look at
 year <- c("2016", "2017", "2018", "2019", "2020")
 
 year_select_box <- selectInput(
@@ -25,6 +25,7 @@ year_select_box <- selectInput(
 )
 
 
+# What goes on my PAGE MAKE THIS INTO A FUNCTION
 tabPanel("Race and Poverty Pie Chart", 
          sidebarLayout(
            sidebarPanel(
@@ -39,20 +40,27 @@ tabPanel("Race and Poverty Pie Chart",
 
 server <- function(input, output){
   output$pieChart <- renderPlotly({
-    update <- co2_data_wrangled %>%
-      filter(country == input$country) %>%
-      filter(between(year, input$slider[1], input$slider[2])) %>%
-      select(country, co2_including_luc, year)
-    
-    output$range <- renderPrint({
-      input$slider
-    })
+    update <- census_data %>%
+      mutate(percent_num = as.numeric(percent)) %>%
+      select(year, race, percent_num) %>%
+      filter(year == input$year) %>%
+      group_by(race) %>%
+      summarize(avg_percent = mean(percent_num, na.rm = TRUE))
     
     ggplot(update) + 
-      geom_line(mapping = aes(x = year, y = co2_including_luc), color = "red") + 
+      geom_bar(
+        mapping = aes(x = "", y = percent_num, fill = race), 
+        stat = "identity", 
+        width = 1
+      ) + 
+      coord_polar("y", start = 0) +
       labs(title = "Total Carbon Dioxide Emission from Production Including Land-Use Change", 
            x = "Year", 
-           y = "Production Emissions of CO2 in Million Tonnes")
+           y = "Production Emissions of CO2 in Million Tonnes") + 
+      theme(
+        axis.text = element_blank()
+      )
   })
 }
+
 
