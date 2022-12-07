@@ -1,7 +1,5 @@
 # File containing the report tab for this project app.
 
-# Load the necessary libraries
-
 report_tab <- tabPanel(
   title = p("Report", style = "color: blue"),
   includeCSS("www/styles.css"),
