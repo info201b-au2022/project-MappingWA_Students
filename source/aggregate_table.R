@@ -1,39 +1,35 @@
+# File containing the summary table for the exploratory analysis portion
+# of this project
+
 library("tidyverse")
 library("stringr")
 
-#graduation rates data 
+# Graduation rates data 
 
 report_data <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/ospi_report_card_data/Report_Card_Graduation_2019-20.csv")
 
-
-graduation_rates <- report_data %>%
+grad_rates <- report_data %>%
   filter(
     str_detect(StudentGroupType, "Race")
   )
-# View(graduation_rates)
 
-graduation_rates <- graduation_rates %>%
+grad_rates <- grad_rates %>%
   select(County, StudentGroup, GraduationRate)
-# View(graduation_rates)
 
-graduation_rates <- graduation_rates %>% drop_na()
-# View(graduation_rates)
+grad_rates <- grad_rates %>% drop_na()
 
 # Rename student group values to fit in chart display.
-graduation_rates[graduation_rates == "Native American"] <-
+grad_rates[grad_rates == "Native American"] <-
   "American Indian/\nAlaskan Native"
-graduation_rates[graduation_rates == "Black"] <-
+grad_rates[grad_rates == "Black"] <-
   "Black/\nAfrican American"
-graduation_rates[graduation_rates == "Pacific Islander"] <-
+grad_rates[grad_rates == "Pacific Islander"] <-
   "Native Hawaiian/\nOther Pacific Islander"
 
-graduation_rates <- graduation_rates %>%
+grad_rates <- grad_rates %>%
   filter(County != "Multiple")
 
-
-
-
-graduation_rates_mean <- graduation_rates  %>% 
+graduation_rates_mean <- grad_rates  %>% 
  group_by(County,StudentGroup) %>%
  summarize(mean_graduation_rate = mean(GraduationRate))
 
@@ -45,14 +41,10 @@ graduation_rates_mean$Race[graduation_rates_mean$Race=="Two or More Races"]<-"Tw
 graduation_rates_mean$Race[graduation_rates_mean$Race=="American Indian/ Alaskan Native"]<-"Native American"
 graduation_rates_mean$Race[graduation_rates_mean$Race=="Native Hawaiian/ Other Pacific Islander"]<-"Pacific Islander"
 
+# Median income data 
 
-
-
-
-# median income data 
-
-median_incomes <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/wa_county_median_incomes.csv")
-median_incomes <- median_incomes %>%
+median_incomes_summary <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/wa_county_median_incomes.csv")
+median_incomes_summary <- median_incomes_summary %>%
   filter(Race != "Total") %>%
   filter(ID.Year == 2020) %>%
   mutate(County = (
@@ -63,17 +55,18 @@ median_incomes <- median_incomes %>%
              )
            )
   )
-median_incomes <- median_incomes %>%
-  select(County, Race, Household.Income.by.Race)
 
-median_incomes<- median_incomes %>%
-  group_by(County)
-  
-
-
-aggregate_data <- left_join(graduation_rates_mean,median_incomes)
-aggregate_data <- aggregate_data%>% drop_na()
-View(aggregate_data)
-
-
-
+aggregate_data <- median_incomes_summary %>%
+  select(County, Race, Household.Income.by.Race) %>%
+  right_join(graduation_rates_mean, by = c("County", "Race")) %>%
+  drop_na() %>%
+  group_by(County, Race, Household.Income.by.Race) %>%
+  summarize("Graduation Rate" = min(mean_graduation_rate, na.rm = TRUE),
+            .groups = "keep") %>%
+  rename("Average Household Income" = Household.Income.by.Race) %>%
+  mutate(`Graduation Rate` = round(`Graduation Rate`, 2)) %>%
+  group_by(County) %>%
+  filter(`Graduation Rate` == min(`Graduation Rate`),
+         `Average Household Income` == min(`Average Household Income`)) %>%
+  ungroup() %>%
+  top_n(-8, wt = `Graduation Rate`)

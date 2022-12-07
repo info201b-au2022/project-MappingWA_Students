@@ -32,8 +32,6 @@ race_data_2016 <- data_2016 %>%
   mutate(year = c(rep(2016, nrow(data_2016)))) %>%
   rename(race = Label..Grouping.) %>%
   select(year, race, counties, percent)
-View(race_data_2016)
-
 
 # 2017 data
 data_2017 <- census_data_2017 %>%
@@ -56,8 +54,6 @@ race_data_2017 <- data_2017 %>%
   mutate(year = c(rep(2017, nrow(data_2017)))) %>%
   rename(race = Label..Grouping.) %>%
   select(year, race, counties, percent)
-View(race_data_2017)
-
 
 # race_data_2017 <- census_data_2017 %>%
 #   gather(key = counties, value = feature, -Label..Grouping.) %>%
@@ -101,8 +97,6 @@ race_data_2018 <- data_2018 %>%
   mutate(year = c(rep(2018, nrow(data_2018)))) %>%
   rename(race = Label..Grouping.) %>%
   select(year, race, counties, percent)
-View(race_data_2018)
-
 
 # race_data_2018 <- census_data_2018 %>%
 #   gather(key = counties, value = feature, -Label..Grouping.) %>%
@@ -146,8 +140,6 @@ race_data_2019 <- data_2019 %>%
   mutate(year = c(rep(2019, nrow(data_2019)))) %>%
   rename(race = Label..Grouping.) %>%
   select(year, race, counties, percent)
-View(race_data_2019)
-
 
 # race_data_2019 <- census_data_2019 %>%
 #   gather(key = counties, value = feature, -Label..Grouping.) %>%
@@ -191,7 +183,6 @@ race_data_2020 <- data_2020 %>%
   mutate(year = c(rep(2020, nrow(data_2020)))) %>%
   rename(race = Label..Grouping.) %>%
   select(year, race, counties, percent)
-View(race_data_2020)
 
 # race_data_2020 <- census_data_2020 %>%
 #   gather(key = counties, value = feature, -Label..Grouping.) %>%
@@ -215,14 +206,11 @@ View(race_data_2020)
 
 # Combine all data frames of the different years
 census_data <- rbind(race_data_2016, race_data_2017, race_data_2018, race_data_2019, race_data_2020)
-View(census_data)
-
 
 ## filtering specific county "Whitman" in 2016 for RMD HTML FILE
 whitman_county_2016 <- census_data %>%
   filter(str_detect(counties, "Whitman")) %>%
   filter(year == "2016")
-View(whitman_county_2016)
 
 
 
