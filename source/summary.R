@@ -35,16 +35,15 @@ low_median_high_insecure <- combined_income_food %>%
 source("../source/race_and_poverty.R")
 # What race has the highest percentage of people below the poverty level in
 # Whitman county?
-# View(census_data)
 
-most_below_poverty_whitman <- whitman_county %>%
+most_below_poverty_whitman <- whitman_county_2016 %>%
   filter(percent == max(percent, na.rm = TRUE)) %>%
   pull(race) %>%
   str_sub(5, -7)
 
 # What race has the lowest percentage of people below the poverty level in
 # Whitman county?
-least_below_poverty_whitman <- whitman_county %>%
+least_below_poverty_whitman <- whitman_county_2016 %>%
   filter(percent == min(percent, na.rm = TRUE)) %>%
   pull(race) %>%
   str_sub(5, -7)
@@ -53,14 +52,11 @@ least_below_poverty_whitman <- whitman_county %>%
 source("../source/graduation_rates.R")
 
 # report_data <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/ospi_report_card_data/Report_Card_Graduation_2019-20.csv")
-# View(report_data)
 
 graduation_rates <- graduation_rates %>%
   select(County, StudentGroup, GraduationRate)
-# View(graduation_rates)
 
 graduation_rates <- graduation_rates %>% drop_na()
-# View(graduation_rates)
 
 # What county has the highest graduation rate? (variable: county_highest_rate)
 county_highest_rate <- report_data %>%

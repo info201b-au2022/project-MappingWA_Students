@@ -7,12 +7,14 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(kableExtra)
 ```
 
 ```{r source_files, echo = FALSE, message = FALSE, include = FALSE}
 # Load the summary.R file, which itself sources all other
 # chart files.
 source("../source/summary.R")
+source("../source/aggregate_table.R")
 ```
 
 ```{r variable_initialization, echo = FALSE}
@@ -26,28 +28,26 @@ grad_rates <- graduation_rates
 grad_rates_plot <- bar_chart(grad_rates)
 
 # Grab race and poverty dataframe and generate plot.
-whitman_county_data <- whitman_county
+whitman_county_data <- whitman_county_2016
 race_poverty_plot <- pie_chart_race_and_poverty(whitman_county_data)
 
 most_insecure_counties <- paste(pull(low_median_high_insecure, Geography),
                                 sep = ", ")
 
 lowest_grad_rate <- paste0(format(round(lowest_grad_rate * 100, 2), nsmall = 2), "%")
-
-summary_table <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/aggregate_data.csv")
 ```
 
 ## **ANALYSIS SUMMARY:** 
 
 The top five counties that have the lowest median incomes and highest percentages of food insecure children in Washington are `r most_insecure_counties`. Whitman county faces the highest percentage of food insecure children as well as lowest median income households. A factor about student’s identities that affects their socioeconomic status is their race. The racial group with the highest percentage of people below the poverty level in Whitman county was `r most_below_poverty_whitman` peoples. The racial group with the lowest percentage of people below the poverty level was `r least_below_poverty_whitman`. Even further, racial identity connects with graduation rates across Washington. The county with the highest graduation rate in Washington is `r county_highest_rate`. The lowest graduation rate in Washington is `r lowest_grad_rate`.
 
-## SUMMARY TABLE
+## **SUMMARY TABLE**
 
 ```{r summarytable, echo = FALSE}
-library("knitr")
-
-kable(summary_table)
+kable(aggregate_data)
 ```
+<br>
+
 This aggregate table shows the correlation between race, county, household income and graduation rate.
 The reason why this table is included is because it looks at the larger picture of our topic: How
 Financial Security Affects Student Success at School. The table proves that intersectionality within
