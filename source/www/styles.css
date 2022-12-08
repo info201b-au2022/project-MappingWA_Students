@@ -44,3 +44,7 @@ hr {
   background-color: hotpink;
   height: 4px;
 }
+
+.navbar-nav > .active > a { 
+  color: red; 
+}

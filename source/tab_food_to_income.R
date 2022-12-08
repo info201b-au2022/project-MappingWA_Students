@@ -17,7 +17,7 @@ food_options <- sidebarPanel(
 
 # The mainPanel element for the chart tab sidebarLayout
 food_chart <- mainPanel(
-  style = "margin-bottom: 20px;",
+  style = "margin-bottom: 40px;",
   plotlyOutput(
     outputId = "food_plot"
   ),
@@ -43,9 +43,9 @@ food_chart <- mainPanel(
 # The main tabPanel element for this chart tab
 food_to_income_tab <- tabPanel(
   title = p(strong("Chart 1",
-            style = "color: hotpink;
+            style = "color: white;
                      font-size: 20px;
-                     font-family: Geneva, Sans-Serif")),
+                     font-family: Trebuchet MS, Sans-Serif")),
   fluidPage(
     style = "margin-left: 80px;
              margin-right: 80px;

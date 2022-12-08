@@ -10,7 +10,7 @@ library(stringr)
 # Source the necessary files
 source("../source/food_to_income.R")
 source("../source/race_and_poverty.R")
-# source("../source/tab_graduation_rates.R")
+source("../source/tab_graduation_rates.R")
 
 # Food and median income data frames for use and to avoid repeated excel
 # file loading
@@ -38,7 +38,7 @@ server <- function(input, output) {
       mode = "markers"
     ) %>%
       layout(
-        title = "Median Income Versus Percent Child Food Insecurity <br> Across Washington Counties",
+        title = paste("Median Income Versus Percent Child Food Insecurity <br> Across Washington Counties in", input$food_year),
         xaxis = list(title = "Median Income in US Dollars"),
         yaxis = list(title = "Percentage of Children Living <br> with Food Insecurity")
       )
@@ -60,6 +60,8 @@ server <- function(input, output) {
         )
       ) +
       labs(
+        title = paste("Percentage of Graduating Students by Racial Group,",
+                      input$year_grad_rate),
         x = "Racial Group",
         y = "Percentage of Graduating Students",
       )

@@ -1,0 +1,13 @@
+name: source
+title: source
+username:
+account: silverdots
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7851183
+bundleId: 6612263
+url: https://silverdots.shinyapps.io/source/
+when: 1670532387.53544
+lastSyncTime: 1670532387.53546
+asMultiple: FALSE
+asStatic: FALSE

@@ -137,9 +137,9 @@ year_select_box <- selectInput(
 
 grad_rates_tab <- tabPanel(
   title = p(strong("Chart 2",
-            style = "color: hotpink;
+            style = "color: white;
                      font-size: 20px;
-                     font-family: Geneva, Sans-Serif")),
+                     font-family: Trebuchet MS, Sans-Serif")),
   fluidPage(
     style = "margin-left: 80px;
              margin-right: 80px;

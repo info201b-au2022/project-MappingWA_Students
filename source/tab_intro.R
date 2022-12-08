@@ -2,12 +2,13 @@
 
 intro_tab <- tabPanel(
   title = p(strong("Introduction",
-            style = "color: hotpink;
+            style = "color: white;
                      font-size: 20px;
-                     font-family: Geneva, Sans-Serif")),
+                     font-family: Trebuchet MS, Sans-Serif")),
   fluidPage(
     style = "margin-left: 80px;
              margin-right: 80px;
+             padding-bottom: 500px;
              background-color: #f5f5f5",
     titlePanel(strong("Introduction", style = "color: #5800a6")),
     hr(),
@@ -19,8 +20,6 @@ intro_tab <- tabPanel(
              <li><em>How might food insecurity be related to students'
              socioeconomic status?</em></li>
              <li><em>How are race and poverty related?</em></li>
-             <li><em>How are racial identity and academic performance in school
-             related?</em></li>
              <li><em>Is there a correlation between students who graduate and their
              racial identity?</em></li>
          </ol>"),
@@ -34,6 +33,9 @@ intro_tab <- tabPanel(
       metrics unknowingly encode oppression. To supplement our analysis of
       student socioeconomic status, we determine how food insecurity resulting
       from low household median incomes status might impact young student
-      graduation rates.")
+      graduation rates."),
+    br(),
+    img(src = "graduation_image.jpeg", alt = "A picture of a
+        high school graduation", height = 333, width = 500)
   )
 )

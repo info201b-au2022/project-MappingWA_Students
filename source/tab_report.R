@@ -2,9 +2,9 @@
 
 report_tab <- tabPanel(
   title = p(strong("Report",
-            style = "color: hotpink;
+            style = "color: white;
                      font-size: 20px;
-                     font-family: Geneva, Sans-Serif")),
+                     font-family: Trebuchet MS, Sans-Serif")),
   includeCSS("www/styles.css"),
   fluidPage(
     style = "margin-left: 80px;
@@ -184,8 +184,6 @@ report_tab <- tabPanel(
                <li><em>How might food insecurity be related to students'
                socioeconomic status?</em></li>
                <li><em>How are race and poverty related?</em></li>
-               <li><em>How are racial identity and academic performance in school
-               related?</em></li>
                <li><em>Is there a correlation between students who graduate and their
                racial identity?</em></li>
              </ol>"),
@@ -261,14 +259,94 @@ report_tab <- tabPanel(
         
         h3(strong("Findings"), id = "finds"),
         hr(),
+        strong(em("How might food insecurity be related to students'
+        socioeconomic status?")),
+        p("Generally, child food insecurity rates were highest in Washington
+          counties with lower average median household incomes and lower in
+          counties with higher median incomes. This finding was consistent
+          across multiple years, which suggests that child food insecurity
+          rates are inversely proportional to median household income across
+          counties."),
+        br(),
+        strong(em("How are race and poverty related?")),
+        p("The correlation between race and poverty is clear and mostly
+          consistent in recent years. The racial group with the highest average
+          percentage of people below the poverty line were monoracial Black or
+          African Americans, the group with the consistent lowest percentage
+          below the poverty line were monoracial white people. This tells us
+          that white people hold an advantage over all people of color,
+          especially Black and African American peoples, and most recently,
+          Native American and Alaskan peoples."),
+        br(),
+        strong(em("Is there a correlation between students who graduate and
+        their racial identity?")),
+        p("In 2020, white students had proportionally higher graduation rates
+          compared to Native American and Pacific Islander Students who had the
+          lowest graduation rate. This is a common trend throughout the years of
+          2015 to 2020, exemplifying how there needs to be more resources given
+          to underprivileged and minority student groups in order to close the
+          gap between graduation rates."),
         br(),
         
         h3(strong("Discussion"), id = "discuss"),
         hr(),
+        p("There is reasonable evidence to suggest that students from lower
+          socioeconomic backgrounds or who might otherwise suffer from financial
+          hardship may struggle in classroom settings. Students may experience
+          mental stress outside of the classroom or social pressure from their
+          peers as a result of food insecurity; these social impacts cannot
+          easily be overcome through existing lunch programs which can, at
+          best, aid students during school hours. Students’ identities may also
+          affect how likely they are to succeed in school, in the sense that
+          students from particular backgrounds have been more
+          disproportionately affected by education inequity than others. For
+          instance, white students have the highest graduation rates compared
+          to every other student group. Recognizing this disparity would allow
+          policymakers and educators to allocate resources to different student
+          racial groups in an equitable manner. Furthermore, our data has proven
+          that poverty status is linked to racial identity as well. By
+          understanding which racial groups are most vulnerable to facing
+          poverty, we can determine which groups are more likely to experience
+          lower graduation rates, allowing policymakers to focus their efforts
+          accordingly."),
+        p("One of the main limitations of our findings lies in the fact that
+          the time period for our data is limited to the narrow range of years
+          from 2016-2020. Thus, we must acknowledge that inequalities involving
+          race are deeply rooted in historical education policies and that our
+          data visualizations do not capture the full scale of this issue.
+          Regardless, we can still apply the information produced by our
+          analysis to leverage further investigation of this issue for other
+          forms of student identity or over different time periods."),
         br(),
         
         h3(strong("Conclusion"), id = "concl"),
         hr(),
+        p("The issue of student graduation rates in Washington extends well
+          beyond curriculum design and academic programs; rather, it is
+          fundamentally a social issue that relates to how well students are
+          supported both in and outside of the classroom. By understanding this
+          gap between graduation rates of student groups, we can learn better
+          ways to allocate resources for students, like adding more
+          representation in the classroom and faculty and recognizing first
+          generation and low income students in order to support them as well.
+          Food insecurity, though one of many factors that could contribute to
+          a student’s struggle to learn, illustrates how financial hardship can
+          impact students’ performance in school. In particular, students from
+          counties with lower average median incomes are at greater risk of
+          suffering from food insecurity, which demonstrates how action must be
+          taken on the part of educators so that students receive the support
+          that they need outside of the classroom. The relationship between
+          race and poverty status has not improved in the sense that there are
+          not equal low numbers between the races nor does there appear to be
+          a trend that suggests that."),
+        p("The only way there will be progress
+          towards equity is for those in power to take action to promote equity
+          of resources for people of color in Washington State. Although it is
+          easy to assume that the failure of schools to maintain high graduation
+          rates is the result of difficulties in student learning or the
+          effectiveness of teaching, educators and policymakers must consider
+          students’ personal lives and how their individual circumstances may
+          play a role in their academic growth."),
         br(),
         
         h3(strong("Acknowledgements"), id = "acknow"),

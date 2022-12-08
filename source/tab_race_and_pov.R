@@ -15,9 +15,9 @@ year_select_box <- selectInput(
 
 race_and_pov_tab <- tabPanel(
   title = p(strong("Chart 3",
-            style = "color: hotpink;
+            style = "color: white;
                      font-size: 20px;
-                     font-family: Geneva, Sans-Serif")),
+                     font-family: Trebuchet MS, Sans-Serif")),
   fluidPage(
     style = "margin-left: 80px;
              margin-right: 80px;
@@ -40,6 +40,7 @@ race_and_pov_tab <- tabPanel(
         year_select_box
       ),
       mainPanel(
+        style = "padding-bottom: 40px",
         plotlyOutput("pieChart"),
         h3(strong("Observations", style = "color: #5800a6")), 
         p("By selecting different years you can see that the most prevelent observation 
