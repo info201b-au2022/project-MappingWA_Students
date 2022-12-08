@@ -3,7 +3,7 @@ library("tidyr")
 library("tidyverse")
 library("stringr")
 
-# all data files by year
+# All data files by year
 census_data_2016 <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/census_bureau_data/us_census_bureau_2016.csv", stringsAsFactors = FALSE)
 census_data_2017 <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/census_bureau_data/us_census_bureau_2017.csv", stringsAsFactors = FALSE)
 census_data_2018 <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/census_bureau_data/us_census_bureau_2018.csv", stringsAsFactors = FALSE)
@@ -25,14 +25,12 @@ data_2016 <- census_data_2016 %>%
     str_detect(counties, "Percent") &
       !str_detect(counties, "Error")
   )
-#View(data_2016)
 
 race_data_2016 <- data_2016 %>%
   mutate(year = c(rep(2016, nrow(data_2016)))) %>%
   rename(race = Label..Grouping.) %>%
   rename(percent = feature) %>%
   select(year, race, counties, percent)
-#View(race_data_2016)
 
 # VERSION WHERE PERCENT IN REPLACED
 # data_2016 <- census_data_2016 %>%
@@ -193,4 +191,3 @@ pie_chart_race_and_poverty <- function(census_data) {
 
 
 p <- pie_chart_race_and_poverty(census_data)
-p

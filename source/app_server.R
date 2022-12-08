@@ -4,10 +4,13 @@
 library(dplyr)
 library(tidyr)
 library(plotly)
+library(ggplot2)
+library(stringr)
 
 # Source the necessary files
 source("../source/food_to_income.R")
-source("../source/race_and_poverty.R")
+# source("../source/race_and_poverty.R")
+source("../source/tab_graduation_rates.R")
 
 # Food and median income dataframes for use and to avoid repeated excel
 # file loading
@@ -42,29 +45,56 @@ server <- function(input, output) {
     return(plot)
   })
   
-  output$pieChart <- renderPlotly({
-    update <- census_data %>%
-      filter(year == input$year) %>%
-      group_by(race) %>%
-      summarize(avg_percent = mean(num_percent, na.rm = TRUE))
+  output$plot_bar_chart <- renderPlotly({
+    year_selected <- str_sub(input$year_grad_rate, 0, 4)
+    year_selected <- as.numeric(year_selected)
     
-    ggplot(update) + 
-      geom_bar(
-        mapping = aes(x = "", y = `num_percent`, fill = race),
-        stat = "identity", 
-        width = 1
-      ) + 
-      coord_polar("y", start = 0) +
+    grad_rates_plot_data <- get(paste0("grad_rates_", year_selected)) %>%
+      mutate("Racial Group" = StudentGroup)
+    
+    grad_rates_plot <- ggplot(data = grad_rates_plot_data) +
+      geom_col(
+        mapping = aes(
+          x = `Racial Group`,
+          y = `Average Graduation Rate`
+        )
+      ) +
       labs(
-        x = "", 
-        y = "", 
-        title = "Average Proportion of Racial Groups Below the Poverty Line by Year",
-        subtitle = "Based on Calculated Average Percent Values", 
-        caption = "MappingWA_Students Project", 
-        alt = "Average Proportion of Racial Groups Below the Poverty Line by Year"
-      ) + 
-      theme(
-        axis.text = element_blank()
+        x = "Racial Group",
+        y = "Percentage of Graduating Students",
       )
+    grad_rates_plot <- ggplotly(grad_rates_plot) %>%
+      layout(
+        yaxis = list(range = c(0.5, 1)),
+        xaxis = list(tickangle = -45),
+        height = 600
+      )
+    return(grad_rates_plot)
   })
+  
+  # output$pieChart <- renderPlotly({
+  #   update <- census_data %>%
+  #     filter(year == input$year) %>%
+  #     group_by(race) %>%
+  #     summarize(avg_percent = mean(`num_percent`, na.rm = TRUE))
+  #   
+  #   plot <- ggplot(update) + 
+  #     geom_bar(
+  #       mapping = aes(x = "", y = `avg_percent`, fill = race),
+  #       stat = "identity", 
+  #       width = 1
+  #     ) + 
+  #     coord_polar("y", start = 0) +
+  #     labs(
+  #       x = "", 
+  #       y = "", 
+  #       title = "Average Proportion of Racial Groups Below the Poverty Line by Year",
+  #       subtitle = "Based on Calculated Average Percent Values", 
+  #       caption = "MappingWA_Students Project", 
+  #       alt = "Average Proportion of Racial Groups Below the Poverty Line by Year"
+  #     ) + 
+  #     theme(
+  #       axis.text = element_blank()
+  #     )
+  # })
 }
