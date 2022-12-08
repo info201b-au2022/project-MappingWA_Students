@@ -9,7 +9,7 @@ library(stringr)
 
 # Source the necessary files
 source("../source/food_to_income.R")
-# source("../source/race_and_poverty.R")
+source("../source/race_and_poverty.R")
 source("../source/tab_graduation_rates.R")
 
 # Food and median income data frames for use and to avoid repeated excel
