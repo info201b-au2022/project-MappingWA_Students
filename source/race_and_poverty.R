@@ -133,9 +133,10 @@ whitman_county_2016 <- census_data %>%
 
 # data wrangle for later TO TURN PERCENT INTO NUM AND THEN SROP NA VALUE
 census_data <- census_data %>%
-  filter(!str_detect(percent, "-")) %>%
+  filter(percent != "-") %>%
   mutate(percentage_number = as.numeric(gsub("%", "", percent))) %>%
   drop_na() %>%
+  mutate(race = str_trim(race)) %>%
   select(year, race, percentage_number)
 #View(census_data)  
 

@@ -12,5 +12,6 @@ ui <- navbarPage(
   food_to_income_tab,
   grad_rates_tab,
   race_and_pov_tab,
-  report_tab
+  report_tab,
+  position = "fixed-top"
 )

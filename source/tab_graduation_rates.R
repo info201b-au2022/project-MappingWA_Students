@@ -130,26 +130,30 @@ grad_rates_2019[grad_rates_2019 == "Hispanic/ Latino of any race(s)"] <-
 year_choices <- c("2015-2016", "2016-2017", "2017-2018", "2018-2019", "2019-2020")
 year_select_box <- selectInput(
   inputId = "year_grad_rate", 
-  label = "Select A Year", 
+  label = "Year to Display", 
   choices = year_choices,
   selected = "2019-2020"
 )
 
 grad_rates_tab <- tabPanel(
-  "Graduation Rates Bar Chart",
-  titlePanel("Graduation Rates of Student Groups in Washington Over Time"),
-  sidebarLayout(
-    sidebarPanel(
-      year_select_box
+  title = p("Chart 2"),
+  fluidPage(
+    titlePanel(strong("Graduation Rates of Student Groups in Washington
+                      Over Time")),
+    sidebarLayout(
+      sidebarPanel(
+        year_select_box
+      ),
+      mainPanel(
+        style = "margin-bottom: 240px",
+        plotlyOutput(outputId = "plot_bar_chart")
+      )
     ),
-    mainPanel(
-      plotlyOutput(outputId = "plot_bar_chart"),
-      p("This bar chart represents the trend of graduation rates amoung different
+    p("This bar chart represents the trend of graduation rates amoung different
         student groups in Washington. By being able to visualize the graduation rates of different 
         race and poverty groups, users are able to conclude patterns they see as they interact 
         with the bar chart.")
-    )
-  ),
+  )
 )
 
 # #SERVER

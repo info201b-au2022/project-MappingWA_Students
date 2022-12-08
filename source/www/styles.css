@@ -1,5 +1,19 @@
 /* This file contains various CSS stylings for the project app. */
 
+html{
+    min-height: 100%;
+}
+
+/* Set background to a gradient and compensate for navbar fixed-top */
+body {
+  min-height: 100%;
+  padding-top: 55px;
+  font-family: Century Gothic;
+/*  background: rgb(196,255,201);
+  background: linear-gradient(0deg, rgba(196,255,201,1) 35%,
+                              rgba(133,238,112,1) 100%); */
+}
+
 
 #report_sidebar {
   position: fixed;
@@ -11,6 +25,3 @@
   font-weight: normal;
 }
 
-footer {
-  padding-left: 100px;
-}
