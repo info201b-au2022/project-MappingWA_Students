@@ -14,7 +14,7 @@ year_select_box <- selectInput(
 )
 
 
-tabPanel("Chart 3", 
+race_and_pov_tab <- tabPanel("Chart 3", 
          sidebarLayout(
            sidebarPanel(
              year_select_box

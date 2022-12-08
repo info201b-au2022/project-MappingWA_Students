@@ -40,4 +40,32 @@ server <- function(input, output) {
       )
     return(plot)
   })
+  
+  output$pieChart <- renderPlotly({
+    update <- census_data %>%
+      mutate(percent_num = as.numeric(percent)) %>%
+      select(year, race, percent_num) %>%
+      filter(year == input$year) %>%
+      group_by(race) %>%
+      summarize(avg_percent = mean(percent_num, na.rm = TRUE))
+    
+    ggplot(update) + 
+      geom_bar(
+        mapping = aes(x = "", y = percent_num, fill = race), 
+        stat = "identity", 
+        width = 1
+      ) + 
+      coord_polar("y", start = 0) +
+      labs(
+        x = "", 
+        y = "", 
+        title = "Average Proportion of Racial Groups Below the Poverty Line by Year",
+        subtitle = "Based on Calculated Average Percent Values", 
+        caption = "MappingWA_Students Project", 
+        alt = "Average Proportion of Racial Groups Below the Poverty Line by Year"
+      ) + 
+      theme(
+        axis.text = element_blank()
+      )
+  })
 }
