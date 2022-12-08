@@ -29,6 +29,9 @@ food_to_income_tab <- tabPanel(
   fluidPage(
     titlePanel(strong("Comparison of Child Food Insecurity Rates to
                Median Income in Washington")),
+    p("The following interactive visualizer illustrates how child food
+      insecurity rates compare to median income across Washington counties.
+      The dataset spans the range from 2016-2020, "),
     sidebarLayout(
       food_options,
       food_chart
