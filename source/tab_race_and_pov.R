@@ -17,10 +17,14 @@ race_and_pov_tab <- tabPanel(
   title = p("Chart 3"), 
   fluidPage(
     titlePanel("The Relationship Between Race and Poverty Status in Washington"),
-    p("The proportions, or sections, of the chart are based on calculating the average percentage 
-      of the race below the poverty line through different counties in Washington within a 
+    p("This chart represents the proportions of the average percentages 
+      of the different racial groups below the poverty line. The poverty thresold is updated annually, 
+      and is determined by a number of factors. 
+      The proportions, or sections, of the chart are based on calculating the average percentage 
+      of the race below the poverty line throughout Washington within a 
       specific year. Users have the ablity to see how the chart varies by year by selecting one of 
-      the year options between 2016 and 2020 using the year selector."),
+      the year options between 2016 and 2020 using the year selector. This chart was produced 
+      from poverty data from the Census Bureau."),
     sidebarLayout(
       sidebarPanel(
         year_select_box
@@ -28,23 +32,16 @@ race_and_pov_tab <- tabPanel(
       mainPanel(
         plotlyOutput("pieChart"),
         h3("Race and Poverty Pie Chart"),
-        h4("The Data"),
-        p("This chart represents the proportions of the average percentages 
-           of the different racial groups below the poverty line. From the original 
-           dataset sourced from the Census Bureau, the categories of Some other race alone, 
-           Hispanic or Latino origin (of any race), White alone, not Hispanic or Latino, 
-           were excluded as to strictly focus on racial groups, and not ethnicities, that 
-           may hold influence on our analysis of the correlation between poverty and race.
-           The measure at focus is the estimated percent of peoples below the poverty line within
-           each racial group. The poverty line or threshold, is determined by a number
-           of factors according to the Census Bureau. These factors include, but are not limted to, 
-           family size, age of family members, total family income, child support, and rent. This 
-           threshold updates every year due to inflation so it is important to understand that 
-           when looking at data from different years, where the poverty theshold lies will vary."),
-        h4("The Takeaway"), 
-        p("Add something here when the charts render. Talk about what is says about poverty and race in 
-           Washington. Maybe search if white people are the largest racial group in Washington. How does
-           it relate to overall question? and how does it bring us closer to an analysis.")
+        h4("Observations"), 
+        p("By selecting different years you can see that the most prevelent observation 
+          is that monoracial white people consistently have the lowest average percentage 
+          of people below the poverty threshold. Additionally, monoracial Black and African American peoples 
+          are mostly the race with the highest average percentage of the population below the poverty line. 
+          In 2020 there is a shift from monoracial Black and African American peoples to Native 
+          American and Native Alaskans. The gap between the lowest average percentage and highest 
+          average percentage is slightly above or below double the amount. Notably, there appears 
+          to be no progression towards a chart that looks more equitable as the section sizes stay 
+          relatively similar across all years."), 
       )
     )
   )
