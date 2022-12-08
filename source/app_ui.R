@@ -1,10 +1,12 @@
+# Load the necessary libraries
+library(plotly)
+
 # Load the necessary source files
-source("../source/app_server.R")
-source("../source/tab_food_to_income.R")
-source("../source/tab_report.R")
-source("../source/tab_intro.R")
-source("../source/tab_race_and_pov.R")
-source("../source/tab_graduation_rates.R")
+source("tab_food_to_income.R")
+source("tab_report.R")
+source("tab_intro.R")
+source("tab_race_and_pov.R")
+source("tab_graduation_rates.R")
 
 ui <- navbarPage(
   title = strong("Mapping WA Students",

@@ -1,5 +1,4 @@
 library("tidyverse")
-# rm(list = ls())
 
 report_data <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/ospi_report_card_data/Report_Card_Graduation_2019-20.csv")
 View(report_data)

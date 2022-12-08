@@ -8,9 +8,9 @@ library(ggplot2)
 library(stringr)
 
 # Source the necessary files
-source("../source/food_to_income.R")
-source("../source/race_and_poverty.R")
-source("../source/tab_graduation_rates.R")
+source("food_to_income.R")
+source("race_and_poverty.R")
+source("tab_graduation_rates.R")
 
 # Food and median income data frames for use and to avoid repeated excel
 # file loading
@@ -73,7 +73,7 @@ server <- function(input, output) {
       )
     return(grad_rates_plot)
   })
-
+  
   output$pieChart <- renderPlotly({
     update <- census_data %>%
       filter(year == input$year) %>%
@@ -93,6 +93,6 @@ server <- function(input, output) {
       )
     return(pie)
   })
-    
+  
 } 
 

@@ -2,7 +2,7 @@
 
 report_tab <- tabPanel(
   title = p(strong("Report",
-            style = "color: white;
+                   style = "color: white;
                      font-size: 20px;
                      font-family: Trebuchet MS, Sans-Serif")),
   includeCSS("www/styles.css"),
@@ -296,7 +296,7 @@ report_tab <- tabPanel(
           mental stress outside of the classroom or social pressure from their
           peers as a result of food insecurity; these social impacts cannot
           easily be overcome through existing lunch programs which can, at
-          best, aid students during school hours. Students’ identities may also
+          best, aid students during school hours. Students??? identities may also
           affect how likely they are to succeed in school, in the sense that
           students from particular backgrounds have been more
           disproportionately affected by education inequity than others. For
@@ -330,8 +330,8 @@ report_tab <- tabPanel(
           representation in the classroom and faculty and recognizing first
           generation and low income students in order to support them as well.
           Food insecurity, though one of many factors that could contribute to
-          a student’s struggle to learn, illustrates how financial hardship can
-          impact students’ performance in school. In particular, students from
+          a student???s struggle to learn, illustrates how financial hardship can
+          impact students??? performance in school. In particular, students from
           counties with lower average median incomes are at greater risk of
           suffering from food insecurity, which demonstrates how action must be
           taken on the part of educators so that students receive the support
@@ -345,7 +345,7 @@ report_tab <- tabPanel(
           easy to assume that the failure of schools to maintain high graduation
           rates is the result of difficulties in student learning or the
           effectiveness of teaching, educators and policymakers must consider
-          students’ personal lives and how their individual circumstances may
+          students??? personal lives and how their individual circumstances may
           play a role in their academic growth."),
         br(),
         
@@ -361,7 +361,7 @@ report_tab <- tabPanel(
         HTML("<ul>
                 <li>Coxe, W. W. (1923). <em>Home Conditions as a Cause of
                 Failure in High School</em>. Educational Research Bulletin,
-                2(13), 200???202. <a href = \"http://www.jstor.org/stable/1470942\">
+                2(13), 200-202. <a href = \"http://www.jstor.org/stable/1470942\">
                 http://www.jstor.org/stable/1470942</a></li>
                 <li>Data.WA.gov (2020). <em>Report Card Graduation 2015-16</em>
                 [Data file]. Retrieved October 31, 2022, from <a href =

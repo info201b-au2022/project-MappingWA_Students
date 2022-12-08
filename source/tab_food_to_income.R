@@ -1,8 +1,6 @@
 # A file containing the UI tab panel element for the food insecurity to
 # county median income chart in the project app.
 
-# Source the necessary files
-
 # The sidebarPanel element for the sidebarLayout
 food_options <- sidebarPanel(
   selectInput(

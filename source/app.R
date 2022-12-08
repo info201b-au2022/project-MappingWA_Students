@@ -5,8 +5,8 @@
 library(shiny)
 
 # Load the necessary source files
-source("../source/app_ui.R")
-source("../source/app_server.R")
+source("app_ui.R")
+source("app_server.R")
 
 # Run the server!
 shinyApp(ui = ui, server = server)

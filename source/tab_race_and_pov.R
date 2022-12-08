@@ -1,7 +1,7 @@
 # working page for shiny web app for race and poverty pie chart 
 
 # to access data wrangling
-source("../source/race_and_poverty.R")
+source("race_and_poverty.R")
 
 # Go to UI
 year <- c("2016", "2017", "2018", "2019", "2020")

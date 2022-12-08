@@ -1,0 +1,14 @@
+name: MappingWAStudents
+title: MappingWAStudents
+username:
+account: silverdots
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7851649
+bundleId: 6612827
+url: https://silverdots.shinyapps.io/MappingWAStudents/
+when: 1670537683.56889
+lastSyncTime: 1670537683.5689
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: aggregate_table.R|README.md|summary.R

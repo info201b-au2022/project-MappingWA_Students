@@ -4,22 +4,22 @@ library("tidyverse")
 library("stringr")
 
 # All data files by year
-census_data_2016 <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/census_bureau_data/us_census_bureau_2016.csv", stringsAsFactors = FALSE)
-census_data_2017 <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/census_bureau_data/us_census_bureau_2017.csv", stringsAsFactors = FALSE)
-census_data_2018 <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/census_bureau_data/us_census_bureau_2018.csv", stringsAsFactors = FALSE)
-census_data_2019 <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/census_bureau_data/us_census_bureau_2019.csv", stringsAsFactors = FALSE)
-census_data_2020 <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-MappingWA_Students/main/data/census_bureau_data/us_census_bureau_2020.csv", stringsAsFactors = FALSE)
+census_data_2016 <- read.csv("../source/census_bureau_data/us_census_bureau_2016.csv")
+census_data_2017 <- read.csv("../source/census_bureau_data/us_census_bureau_2017.csv")
+census_data_2018 <- read.csv("../source/census_bureau_data/us_census_bureau_2018.csv")
+census_data_2019 <- read.csv("../source/census_bureau_data/us_census_bureau_2019.csv")
+census_data_2020 <- read.csv("../source/census_bureau_data/us_census_bureau_2020.csv")
 
 
 # 2016 data
 data_2016 <- census_data_2016 %>%
-  gather(key = counties, value = feature, -Label..Grouping.) %>%
+  gather(key = counties, value = feature, -Label) %>%
   filter(
-    str_detect(Label..Grouping., "White alone$") |
-      str_detect(Label..Grouping., "Black") |
-      str_detect(Label..Grouping., "Native") |
-      str_detect(Label..Grouping., "Asian") |
-      str_detect(Label..Grouping., "Two or more races")
+    str_detect(Label, "White alone$") |
+      str_detect(Label, "Black") |
+      str_detect(Label, "Native") |
+      str_detect(Label, "Asian") |
+      str_detect(Label, "Two or more races")
   ) %>%
   filter(
     str_detect(counties, "Percent") &
@@ -28,19 +28,19 @@ data_2016 <- census_data_2016 %>%
 
 race_data_2016 <- data_2016 %>%
   mutate(year = c(rep(2016, nrow(data_2016)))) %>%
-  rename(race = Label..Grouping.) %>%
+  rename(race = Label) %>%
   rename(percent = feature) %>%
   select(year, race, counties, percent)
 
 # 2017 data
 data_2017 <- census_data_2017 %>%
-  gather(key = counties, value = feature, -Label..Grouping.) %>%
+  gather(key = counties, value = feature, -Label) %>%
   filter(
-    str_detect(Label..Grouping., "White alone$") |
-      str_detect(Label..Grouping., "Black") |
-      str_detect(Label..Grouping., "Native") |
-      str_detect(Label..Grouping., "Asian") |
-      str_detect(Label..Grouping., "Two or more races")
+    str_detect(Label, "White alone$") |
+      str_detect(Label, "Black") |
+      str_detect(Label, "Native") |
+      str_detect(Label, "Asian") |
+      str_detect(Label, "Two or more races")
   ) %>%
   filter(
     str_detect(counties, "Percent") &
@@ -49,7 +49,7 @@ data_2017 <- census_data_2017 %>%
 
 race_data_2017 <- data_2017 %>%
   mutate(year = c(rep(2017, nrow(data_2017)))) %>%
-  rename(race = Label..Grouping.) %>%
+  rename(race = Label) %>%
   rename(percent = feature) %>%
   select(year, race, counties, percent)
 
@@ -57,13 +57,13 @@ race_data_2017 <- data_2017 %>%
 
 # 2018 data
 data_2018 <- census_data_2018 %>%
-  gather(key = counties, value = feature, -Label..Grouping.) %>%
+  gather(key = counties, value = feature, -Label) %>%
   filter(
-    str_detect(Label..Grouping., "White alone$") |
-      str_detect(Label..Grouping., "Black") |
-      str_detect(Label..Grouping., "Native") |
-      str_detect(Label..Grouping., "Asian") |
-      str_detect(Label..Grouping., "Two or more races")
+    str_detect(Label, "White alone$") |
+      str_detect(Label, "Black") |
+      str_detect(Label, "Native") |
+      str_detect(Label, "Asian") |
+      str_detect(Label, "Two or more races")
   ) %>%
   filter(
     str_detect(counties, "Percent") &
@@ -72,7 +72,7 @@ data_2018 <- census_data_2018 %>%
 
 race_data_2018 <- data_2018 %>%
   mutate(year = c(rep(2018, nrow(data_2018)))) %>%
-  rename(race = Label..Grouping.) %>%
+  rename(race = Label) %>%
   rename(percent = feature) %>%
   select(year, race, counties, percent)
 
@@ -81,13 +81,13 @@ race_data_2018 <- data_2018 %>%
 
 # 2019 data 
 data_2019 <- census_data_2019 %>%
-  gather(key = counties, value = feature, -Label..Grouping.) %>%
+  gather(key = counties, value = feature, -Label) %>%
   filter(
-    str_detect(Label..Grouping., "White alone$") |
-      str_detect(Label..Grouping., "Black") |
-      str_detect(Label..Grouping., "Native") |
-      str_detect(Label..Grouping., "Asian") |
-      str_detect(Label..Grouping., "Two or more races")
+    str_detect(Label, "White alone$") |
+      str_detect(Label, "Black") |
+      str_detect(Label, "Native") |
+      str_detect(Label, "Asian") |
+      str_detect(Label, "Two or more races")
   ) %>%
   filter(
     str_detect(counties, "Percent") &
@@ -96,20 +96,20 @@ data_2019 <- census_data_2019 %>%
 
 race_data_2019 <- data_2019 %>%
   mutate(year = c(rep(2019, nrow(data_2019)))) %>%
-  rename(race = Label..Grouping.) %>%
+  rename(race = Label) %>%
   rename(percent = feature) %>%
   select(year, race, counties, percent)
 
 
 # 2020 data
 data_2020 <- census_data_2020 %>%
-  gather(key = counties, value = feature, -Label..Grouping.) %>%
+  gather(key = counties, value = feature, -Label) %>%
   filter(
-    str_detect(Label..Grouping., "White alone$") |
-      str_detect(Label..Grouping., "Black") |
-      str_detect(Label..Grouping., "Native") |
-      str_detect(Label..Grouping., "Asian") |
-      str_detect(Label..Grouping., "Two or more races")
+    str_detect(Label, "White alone$") |
+      str_detect(Label, "Black") |
+      str_detect(Label, "Native") |
+      str_detect(Label, "Asian") |
+      str_detect(Label, "Two or more races")
   ) %>%
   filter(
     str_detect(counties, "Percent") &
@@ -118,7 +118,7 @@ data_2020 <- census_data_2020 %>%
 
 race_data_2020 <- data_2020 %>%
   mutate(year = c(rep(2020, nrow(data_2020)))) %>%
-  rename(race = Label..Grouping.) %>%
+  rename(race = Label) %>%
   rename(percent = feature) %>%
   select(year, race, counties, percent)
 
