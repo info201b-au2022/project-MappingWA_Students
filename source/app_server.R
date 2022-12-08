@@ -12,7 +12,7 @@ source("../source/food_to_income.R")
 # source("../source/race_and_poverty.R")
 source("../source/tab_graduation_rates.R")
 
-# Food and median income dataframes for use and to avoid repeated excel
+# Food and median income data frames for use and to avoid repeated excel
 # file loading
 food_2016 <- load_food_insecurity_data(2016)
 food_2017 <- load_food_insecurity_data(2017)
@@ -71,30 +71,30 @@ server <- function(input, output) {
       )
     return(grad_rates_plot)
   })
-  
-  # output$pieChart <- renderPlotly({
-  #   update <- census_data %>%
-  #     filter(year == input$year) %>%
-  #     group_by(race) %>%
-  #     summarize(avg_percent = mean(`num_percent`, na.rm = TRUE))
-  #   
-  #   plot <- ggplot(update) + 
-  #     geom_bar(
-  #       mapping = aes(x = "", y = `avg_percent`, fill = race),
-  #       stat = "identity", 
-  #       width = 1
-  #     ) + 
-  #     coord_polar("y", start = 0) +
-  #     labs(
-  #       x = "", 
-  #       y = "", 
-  #       title = "Average Proportion of Racial Groups Below the Poverty Line by Year",
-  #       subtitle = "Based on Calculated Average Percent Values", 
-  #       caption = "MappingWA_Students Project", 
-  #       alt = "Average Proportion of Racial Groups Below the Poverty Line by Year"
-  #     ) + 
-  #     theme(
-  #       axis.text = element_blank()
-  #     )
-  # })
+
+  output$pieChart <- renderPlotly({
+    update <- census_data %>%
+      filter(year == input$year) %>%
+      group_by(race) %>%
+      summarize(avg_percent = mean(percent_num, na.rm = TRUE))
+    
+    ggplot(data = update) +
+      geom_bar(
+        mapping = aes(x = "", y = percent_num, fill = race),
+        stat = "identity",
+        width = 1
+      ) +
+      coord_polar("y", start = 0) +
+    labs(
+      x = "",
+      y = "",
+      title = "Average Proportion of Racial Groups Below the Poverty Line by Year",
+      subtitle = "Based on Calculated Average Percent Values",
+      caption = "MappingWA_Students Project",
+      alt = "Average Proportion of Racial Groups Below the Poverty Line by Year"
+    ) +
+    theme(
+      axis.text = element_blank()
+    )
+  })
 }

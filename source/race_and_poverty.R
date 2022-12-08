@@ -69,7 +69,7 @@ data_2017 <- census_data_2017 %>%
   )
 
 race_data_2017 <- data_2017 %>%
-  mutate(year = c(rep(2016, nrow(data_2017)))) %>%
+  mutate(year = c(rep(2017, nrow(data_2017)))) %>%
   rename(race = Label..Grouping.) %>%
   rename(percent = feature) %>%
   select(year, race, counties, percent)
@@ -92,7 +92,7 @@ data_2018 <- census_data_2018 %>%
   )
 
 race_data_2018 <- data_2018 %>%
-  mutate(year = c(rep(2016, nrow(data_2018)))) %>%
+  mutate(year = c(rep(2018, nrow(data_2018)))) %>%
   rename(race = Label..Grouping.) %>%
   rename(percent = feature) %>%
   select(year, race, counties, percent)
@@ -116,7 +116,7 @@ data_2019 <- census_data_2019 %>%
   )
 
 race_data_2019 <- data_2019 %>%
-  mutate(year = c(rep(2016, nrow(data_2019)))) %>%
+  mutate(year = c(rep(2019, nrow(data_2019)))) %>%
   rename(race = Label..Grouping.) %>%
   rename(percent = feature) %>%
   select(year, race, counties, percent)
@@ -138,7 +138,7 @@ data_2020 <- census_data_2020 %>%
   )
 
 race_data_2020 <- data_2020 %>%
-  mutate(year = c(rep(2016, nrow(data_2020)))) %>%
+  mutate(year = c(rep(2020, nrow(data_2020)))) %>%
   rename(race = Label..Grouping.) %>%
   rename(percent = feature) %>%
   select(year, race, counties, percent)
@@ -155,9 +155,9 @@ whitman_county_2016 <- census_data %>%
 # data wrangle for later TO TURN PERCENT INTO NUM AND THEN SROP NA VALUE
 census_data <- census_data %>%
   filter(!str_detect(percent, "-")) %>%
-  mutate(num_percent = as.numeric(gsub("%", "", percent))) %>%
+  mutate(percent_num = as.numeric(gsub("%", "", percent))) %>%
   drop_na() %>%
-  select(year, race, num_percent)
+  select(year, race, percent_num)
 #View(census_data)  
 
 # PIE CHART FUNCTION FOR RMD HTML
