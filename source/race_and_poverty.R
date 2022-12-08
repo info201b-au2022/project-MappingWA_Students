@@ -157,10 +157,10 @@ whitman_county_2016 <- census_data %>%
 # data wrangle for later TO TURN PERCENT INTO NUM AND THEN SROP NA VALUE
 census_data <- census_data %>%
   filter(!str_detect(percent, "-")) %>%
-  mutate(percent = as.numeric(gsub("%", "", percent))) %>%
-  #drop_na() %>%
-  select(year, race, percent)
-View(census_data)  
+  mutate(num_percent = as.numeric(gsub("%", "", percent))) %>%
+  drop_na() %>%
+  select(year, race, num_percent)
+#View(census_data)  
 
 # PIE CHART FUNCTION FOR RMD HTML
 library("ggplot2")

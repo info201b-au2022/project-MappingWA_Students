@@ -46,11 +46,11 @@ server <- function(input, output) {
     update <- census_data %>%
       filter(year == input$year) %>%
       group_by(race) %>%
-      summarize(avg_percent = mean(percent, na.rm = TRUE))
+      summarize(avg_percent = mean(num_percent, na.rm = TRUE))
     
     ggplot(update) + 
       geom_bar(
-        mapping = aes(x = "", y = percent, fill = race),
+        mapping = aes(x = "", y = `num_percent`, fill = race),
         stat = "identity", 
         width = 1
       ) + 
