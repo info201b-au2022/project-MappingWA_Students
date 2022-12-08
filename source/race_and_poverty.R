@@ -157,12 +157,13 @@ plot_labels <- labs(
 pie_chart_race_and_poverty <- function(census_data) {
   chart <- ggplot(data = whitman_county_2016) +
     geom_bar(
-      mapping = aes(x = "", y = percent_num, fill = race),
+      mapping = aes(x = "", y = percent, fill = race),
       stat = "identity",
       width = 1,
     ) +
     coord_polar("y", start = 0) +
     plot_labels +
+    guides(fill = guide_legend(title = "Race")) +
     theme(
       axis.text = element_blank()
     )
