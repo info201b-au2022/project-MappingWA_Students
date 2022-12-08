@@ -48,7 +48,7 @@ server <- function(input, output) {
       group_by(race) %>%
       summarize(avg_percent = mean(percent_num, na.rm = TRUE))
     
-    ggplot(update) + 
+    ggplot(data = update) + 
       geom_bar(
         mapping = aes(x = "", y = percent_num, fill = race),
         stat = "identity", 
