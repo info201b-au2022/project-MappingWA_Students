@@ -214,8 +214,8 @@ whitman_county_2016 <- census_data %>%
 
 # data wrangle for later 
 census_data <- census_data %>%
+  filter(percent != "-") %>%
   mutate(percent_num = as.numeric(percent)) %>%
-  drop_na() %>%
   select(year, race, percent_num)
 
 
