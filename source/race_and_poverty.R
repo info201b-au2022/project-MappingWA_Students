@@ -32,27 +32,6 @@ race_data_2016 <- data_2016 %>%
   rename(percent = feature) %>%
   select(year, race, counties, percent)
 
-# VERSION WHERE PERCENT IN REPLACED
-# data_2016 <- census_data_2016 %>%
-#   gather(key = counties, value = feature, -Label..Grouping.) %>%
-#   filter(
-#     str_detect(Label..Grouping., "White alone$") |
-#       str_detect(Label..Grouping., "Black") |
-#       str_detect(Label..Grouping., "Native") |
-#       str_detect(Label..Grouping., "Asian") |
-#       str_detect(Label..Grouping., "Two or more races")
-#   ) %>%
-#   filter(
-#     str_detect(counties, "Percent") &
-#       !str_detect(counties, "Error")
-#   ) %>%
-#   mutate(percent = gsub("%$","",feature))
-# 
-# race_data_2016 <- data_2016 %>%  
-#   mutate(year = c(rep(2016, nrow(data_2016)))) %>%
-#   rename(race = Label..Grouping.) %>%
-#   select(year, race, counties, percent)
-
 # 2017 data
 data_2017 <- census_data_2017 %>%
   gather(key = counties, value = feature, -Label..Grouping.) %>%
@@ -191,3 +170,4 @@ pie_chart_race_and_poverty <- function(census_data) {
 
 
 p <- pie_chart_race_and_poverty(census_data)
+p
