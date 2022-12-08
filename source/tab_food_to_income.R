@@ -20,29 +20,9 @@ food_chart <- mainPanel(
   style = "margin-bottom: 20px;",
   plotlyOutput(
     outputId = "food_plot"
-  )
-)
-
-# The main tabPanel element for this chart tab
-food_to_income_tab <- tabPanel(
-  title = p("Chart 1"),
-  fluidPage(
-    titlePanel(strong("Comparison of Child Food Insecurity Rates to
-               Median Income in Washington")),
-    p("The following interactive visualizer illustrates how child food
-      insecurity rates compare to median income across Washington counties.
-      The dataset spans the range of years from 2016-2020 and was produced
-      from the combination of data provided on county median incomes
-      provided by DataUSA and of food insecurity rates from Feeding America.
-      Users may select a year from the available options to view the ratio
-      of median incomes to the percentage of children facing food security
-      across various counties for the given year."),
-    sidebarLayout(
-      food_options,
-      food_chart
-    ),
-    h3(strong("Observations")),
-    p("Unsurprisingly, exists a rather strong correlation between child food
+  ),
+  h3(strong("Observations", style = "color: #5800a6")),
+  p("Unsurprisingly, exists a rather strong correlation between child food
       insecurity rates and median income across Washington counties. That is,
       the percentage of children living with food insecurity in a given county
       is inversely proportional to the average household median income for that
@@ -58,5 +38,33 @@ food_to_income_tab <- tabPanel(
       to sustain themselves outside of school. Additionally, the stigma
       of eating \"free and reduced school lunches\" could impact childrens'
       mental health, which in turn might affect their academics.")
+)
+
+# The main tabPanel element for this chart tab
+food_to_income_tab <- tabPanel(
+  title = p(strong("Chart 1",
+            style = "color: hotpink;
+                     font-size: 20px;
+                     font-family: Geneva, Sans-Serif")),
+  fluidPage(
+    style = "margin-left: 80px;
+             margin-right: 80px;
+             background-color: #f5f5f5",
+    titlePanel(strong("Comparison of Child Food Insecurity Rates to
+               Median Income in Washington", style = "color: #5800a6")),
+    hr(),
+    p("The following interactive visualizer illustrates how child food
+      insecurity rates compare to median income across Washington counties.
+      The dataset spans the range of years from 2016-2020 and was produced
+      from the combination of data provided on county median incomes
+      provided by DataUSA and of food insecurity rates from Feeding America.
+      Users may select a year from the available options to view the ratio
+      of median incomes to the percentage of children facing food security
+      across various counties for the given year."),
+    br(),
+    sidebarLayout(
+      food_options,
+      food_chart
+    )
   )
 )

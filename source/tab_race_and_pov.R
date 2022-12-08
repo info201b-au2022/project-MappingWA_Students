@@ -14,9 +14,18 @@ year_select_box <- selectInput(
 
 
 race_and_pov_tab <- tabPanel(
-  title = p("Chart 3"), 
+  title = p(strong("Chart 3",
+            style = "color: hotpink;
+                     font-size: 20px;
+                     font-family: Geneva, Sans-Serif")),
   fluidPage(
-    titlePanel(strong("The Relationship Between Race and Poverty Status in Washington")),
+    style = "margin-left: 80px;
+             margin-right: 80px;
+             background-color: #f5f5f5",
+    titlePanel(strong("The Relationship Between Race and Poverty Status in
+                      Washington",
+                      style = "color: #5800a6")),
+    hr(),
     p("This chart represents the proportions of the average percentages 
       of the different racial groups below the poverty line. The poverty thresold is updated annually, 
       and is determined by a number of factors. 
@@ -25,13 +34,14 @@ race_and_pov_tab <- tabPanel(
       specific year. Users have the ablity to see how the chart varies by year by selecting one of 
       the year options between 2016 and 2020 using the year selector. This chart was produced 
       from poverty data from the Census Bureau."),
+    br(),
     sidebarLayout(
       sidebarPanel(
         year_select_box
       ),
       mainPanel(
         plotlyOutput("pieChart"),
-        h3(strong("Observations")), 
+        h3(strong("Observations", style = "color: #5800a6")), 
         p("By selecting different years you can see that the most prevelent observation 
           is that monoracial white people consistently have the lowest average percentage 
           of people below the poverty threshold. Additionally, monoracial Black and African American peoples 

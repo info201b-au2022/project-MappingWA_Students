@@ -1,19 +1,26 @@
 # File containing the report tab for this project app.
 
 report_tab <- tabPanel(
-  title = p("Report", style = "color: blue"),
+  title = p(strong("Report",
+            style = "color: hotpink;
+                     font-size: 20px;
+                     font-family: Geneva, Sans-Serif")),
   includeCSS("www/styles.css"),
   fluidPage(
+    style = "margin-left: 80px;
+             margin-right: 80px;
+             background-color: #f5f5f5",
     sidebarLayout(
       sidebarPanel(
         id = "report_sidebar",
         width = 3,
         fluid = TRUE,
-        strong("Quick Navigation", style = "font-size: 20px"),
+        strong("Quick Navigation", style = "font-size: 22px;
+                                            color: #5800a6"),
         hr(),
         h4(a("Abstract", href = "#abstract")),
         h4(a("Introduction", href = "#intro")),
-        h4("Problem Domain"),
+        h4("Problem Domain", style = "color: #5800a6"),
         HTML("<ul>
                <li><a href = \"#stakes\", style = \"font-size: 14px\">
                    Stakeholders</a></li>
@@ -33,9 +40,11 @@ report_tab <- tabPanel(
         h4(a("References", href = "#refs"))
       ),
       mainPanel(
+        id = "report_main",
         style = "margin-left: 50px",
         titlePanel(strong("After Hours - How Financial Security Affects Student
-                          Success at School")),
+                          Success at School",
+                          style = "color: #5800a6")),
         hr(),
         
         strong("Authors:"),
@@ -264,6 +273,9 @@ report_tab <- tabPanel(
         
         h3(strong("Acknowledgements"), id = "acknow"),
         hr(),
+        p("We would like to thank our TA, Raina Scherer, for supporting us
+          throughout the project development process! Thank you for your
+          patience and understanding!"),
         br(),
         
         h3(strong("References"), id = "refs"),

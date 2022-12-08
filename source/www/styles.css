@@ -9,19 +9,38 @@ body {
   min-height: 100%;
   padding-top: 55px;
   font-family: Century Gothic;
-/*  background: rgb(196,255,201);
-  background: linear-gradient(0deg, rgba(196,255,201,1) 35%,
-                              rgba(133,238,112,1) 100%); */
+  background: rgb(172,34,195);
+  background: linear-gradient(127deg, rgba(172,34,195,1) 0%, rgba(97,45,253,1) 100%),
+              linear-gradient(217deg, rgba(195,34,170,1) 0%, rgba(128,45,253,1) 100%),
+              linear-gradient(336deg, rgba(34,59,195,1) 0%, rgba(202,45,253,1) 100%);
 }
 
 
 #report_sidebar {
+  margin-top: 30px;
+  margin-left: 10px;
+  background-color: #f5f5f5;
   position: fixed;
   font-weight: bold;
 }
 
 #report_sidebar a {
-  color: black;
+  color: #5800a6;
   font-weight: normal;
 }
 
+.navbar-default {
+  background-color: #5800a6;
+  border-bottom: 0;
+  box-shadow: none;
+}
+
+#report_main h3 {
+  color: #5800a6;
+}
+
+hr {
+  border: none;
+  background-color: hotpink;
+  height: 4px;
+}

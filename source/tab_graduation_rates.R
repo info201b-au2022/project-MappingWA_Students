@@ -136,10 +136,23 @@ year_select_box <- selectInput(
 )
 
 grad_rates_tab <- tabPanel(
-  title = p("Chart 2"),
+  title = p(strong("Chart 2",
+            style = "color: hotpink;
+                     font-size: 20px;
+                     font-family: Geneva, Sans-Serif")),
   fluidPage(
+    style = "margin-left: 80px;
+             margin-right: 80px;
+             background-color: #f5f5f5",
     titlePanel(strong("Graduation Rates of Student Groups in Washington
-                      Over Time")),
+                      Over Time",
+                      style = "color: #5800a6")),
+    hr(),
+    p("This bar chart represents the trend of graduation rates amoung different
+        student groups in Washington. By being able to visualize the graduation rates of different 
+        race and poverty groups, users are able to conclude patterns they see as they interact 
+        with the bar chart."),
+    br(),
     sidebarLayout(
       sidebarPanel(
         year_select_box
@@ -148,11 +161,7 @@ grad_rates_tab <- tabPanel(
         style = "margin-bottom: 240px",
         plotlyOutput(outputId = "plot_bar_chart")
       )
-    ),
-    p("This bar chart represents the trend of graduation rates amoung different
-        student groups in Washington. By being able to visualize the graduation rates of different 
-        race and poverty groups, users are able to conclude patterns they see as they interact 
-        with the bar chart.")
+    )
   )
 )
 

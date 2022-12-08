@@ -1,9 +1,15 @@
 # A file containing the introductory tab for this project app.
 
 intro_tab <- tabPanel(
-  title = p("Introduction"),
+  title = p(strong("Introduction",
+            style = "color: hotpink;
+                     font-size: 20px;
+                     font-family: Geneva, Sans-Serif")),
   fluidPage(
-    titlePanel(strong("Introduction")),
+    style = "margin-left: 80px;
+             margin-right: 80px;
+             background-color: #f5f5f5",
+    titlePanel(strong("Introduction", style = "color: #5800a6")),
     hr(),
     p("The ", strong("Mapping WA Project"), "was designed for the purpose of
       exploring the correlation between youth poverty, racial identity, and
