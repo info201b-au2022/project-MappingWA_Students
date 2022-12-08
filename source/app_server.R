@@ -78,23 +78,38 @@ server <- function(input, output) {
       group_by(race) %>%
       summarize(avg_percent = mean(percentage_number, na.rm = TRUE))
     
-    ggplot(data = update) +
-      geom_bar(
-        mapping = aes(x = "", y = percentage_number, fill = race),
-        stat = "identity",
-        width = 1
-      ) +
-      coord_polar("y", start = 0) +
-    labs(
-      x = "",
-      y = "",
-      title = "Average Proportion of Racial Groups Below the Poverty Line by Year",
-      subtitle = "Based on Calculated Average Percent Values",
-      caption = "MappingWA_Students Project",
-      alt = "Average Proportion of Racial Groups Below the Poverty Line by Year"
-    ) +
-    theme(
-      axis.text = element_blank()
-    )
+    pie <- plot_ly(
+      data = update, 
+      labels = ~race, 
+      values = ~percentage_number, 
+      type = "pie"
+    ) %>%
+      layout(
+        title = "Average Proportion of Racial Groups Below the Poverty Line by Year", 
+        xaxis = list(showgrid = FALSE, zeroline = FALSE, showtickLabels = FALSE), 
+        yaxis = list(showgrid = FALSE, zeroline = FALSE, showtickLabels = FALSE)
+      )
+    return(pie)
   })
-}
+    
+} # end of server
+
+        # ggplot(data = update) +
+    #   geom_bar(
+    #     mapping = aes(x = "", y = "percentage_number", fill = race),
+    #     stat = "identity",
+    #     width = 1
+    #   ) +
+    #   coord_polar("y", start = 0) +
+    # labs(
+    #   x = "",
+    #   y = "",
+    #   title = "Average Proportion of Racial Groups Below the Poverty Line by Year",
+    #   subtitle = "Based on Calculated Average Percent Values",
+    #   caption = "MappingWA_Students Project",
+    #   alt = "Average Proportion of Racial Groups Below the Poverty Line by Year"
+    # ) +
+    # theme(
+    #   axis.text = element_blank()
+    # )
+
