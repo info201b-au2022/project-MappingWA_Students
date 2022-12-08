@@ -72,3 +72,37 @@ tabPanel(
   ),
 )
 
+#SERVER
+server <- function(input, output) {
+  chart_data <- reactive({
+    graduation <- grad_data %>%
+    output$value <- renderPrint({
+      input$slider1
+    })
+    output$range <- renderPrint({
+      input$slider2
+    })
+    graduation
+  })
+  
+  
+  output$plot_bar_chart <-
+    renderPlotly(
+      plot <- ggplotly(data = df) +
+        geom_col(
+          mapping = aes(
+            x = StudentGroup,
+            y = GraduationRate
+          )
+        ) +
+        scale_x_discrete(
+          guide = guide_axis(angle = 45)
+        ) +
+        labs(
+          x = "Racial Group",
+          y = "Number of Graduating Students",
+        )
+    )
+}
+
+
