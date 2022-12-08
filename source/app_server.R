@@ -7,6 +7,7 @@ library(plotly)
 
 # Source the necessary files
 source("../source/food_to_income.R")
+source("../source/race_and_poverty.R")
 
 # Food and median income dataframes for use and to avoid repeated excel
 # file loading
@@ -45,11 +46,11 @@ server <- function(input, output) {
     update <- census_data %>%
       filter(year == input$year) %>%
       group_by(race) %>%
-      summarize(avg_percent = mean(percent_num, na.rm = TRUE))
+      summarize(avg_percent = mean(percent, na.rm = TRUE))
     
     ggplot(update) + 
       geom_bar(
-        mapping = aes(x = "", y = percent_num, fill = race), 
+        mapping = aes(x = "", y = percent, fill = race), 
         stat = "identity", 
         width = 1
       ) + 
