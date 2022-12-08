@@ -92,24 +92,5 @@ server <- function(input, output) {
     return(pie)
   })
     
-} # end of server
-
-        # ggplot(data = update) +
-    #   geom_bar(
-    #     mapping = aes(x = "", y = "percentage_number", fill = race),
-    #     stat = "identity",
-    #     width = 1
-    #   ) +
-    #   coord_polar("y", start = 0) +
-    # labs(
-    #   x = "",
-    #   y = "",
-    #   title = "Average Proportion of Racial Groups Below the Poverty Line by Year",
-    #   subtitle = "Based on Calculated Average Percent Values",
-    #   caption = "MappingWA_Students Project",
-    #   alt = "Average Proportion of Racial Groups Below the Poverty Line by Year"
-    # ) +
-    # theme(
-    #   axis.text = element_blank()
-    # )
+} 
 
