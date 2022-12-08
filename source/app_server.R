@@ -43,8 +43,6 @@ server <- function(input, output) {
   
   output$pieChart <- renderPlotly({
     update <- census_data %>%
-      mutate(percent_num = as.numeric(percent)) %>%
-      select(year, race, percent_num) %>%
       filter(year == input$year) %>%
       group_by(race) %>%
       summarize(avg_percent = mean(percent_num, na.rm = TRUE))
