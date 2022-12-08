@@ -3,8 +3,7 @@
 # to access data wrangling
 source("../source/race_and_poverty.R")
 
-# What goes in the UI
-
+# Go to UI
 year <- c("2016", "2017", "2018", "2019", "2020")
 year_select_box <- selectInput(
   "year", 
@@ -48,7 +47,7 @@ race_and_pov_tab <- tabPanel("Chart 3",
 
 
 
-# What goes in Server
+# Go to Server
 server <- function(input, output){
   output$pieChart <- renderPlotly({
     update <- census_data %>%
