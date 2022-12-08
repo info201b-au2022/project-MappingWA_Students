@@ -74,7 +74,7 @@ load_food_insecurity_data <- function(year) {
   )
   food_df <- food_df %>%
     filter(`State` == "WA") %>%
-    rename(food_insecurity_rate = child_rate_col) %>%
+    rename(food_insecurity_rate = all_of(child_rate_col)) %>%
     rename(location = "County, State") %>%
     mutate(county =
              tolower(
