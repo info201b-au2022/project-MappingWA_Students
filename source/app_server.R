@@ -50,7 +50,7 @@ server <- function(input, output) {
     
     ggplot(update) + 
       geom_bar(
-        mapping = aes(x = "", y = percent, fill = race), 
+        mapping = aes(x = "", y = percent, fill = race),
         stat = "identity", 
         width = 1
       ) + 

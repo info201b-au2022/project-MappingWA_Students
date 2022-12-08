@@ -162,7 +162,6 @@ census_data <- census_data %>%
   select(year, race, percent)
 View(census_data)  
 
-
 # PIE CHART FUNCTION FOR RMD HTML
 library("ggplot2")
 
