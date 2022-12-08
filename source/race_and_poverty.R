@@ -207,21 +207,19 @@ race_data_2020 <- data_2020 %>%
 # Combine all data frames of the different years
 census_data <- rbind(race_data_2016, race_data_2017, race_data_2018, race_data_2019, race_data_2020)
 
-census_data <- census_data %>%
-  mutate(percent_num = as.numeric(percent)) %>%
-  drop_na() %>%
-  select(year, race, percent_num)
-
-  
-
 ## filtering specific county "Whitman" in 2016 for RMD HTML FILE
 whitman_county_2016 <- census_data %>%
   filter(str_detect(counties, "Whitman")) %>%
   filter(year == "2016")
 
+# data wrangle for later 
+census_data <- census_data %>%
+  mutate(percent_num = as.numeric(percent)) %>%
+  drop_na() %>%
+  select(year, race, percent_num)
 
 
-# PIE CHART FUNCTION
+# PIE CHART FUNCTION FOR RMD HTML
 library("ggplot2")
 
 plot_labels <- labs(
