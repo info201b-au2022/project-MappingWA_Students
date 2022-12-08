@@ -209,6 +209,7 @@ census_data <- rbind(race_data_2016, race_data_2017, race_data_2018, race_data_2
 
 census_data <- census_data %>%
   mutate(percent_num = as.numeric(percent)) %>%
+  drop_na() %>%
   select(year, race, percent_num)
 
   
