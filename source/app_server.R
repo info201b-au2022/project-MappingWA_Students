@@ -79,9 +79,9 @@ server <- function(input, output) {
       summarize(avg_percent = mean(percentage_number, na.rm = TRUE))
     
     pie <- plot_ly(
-      data = update, 
+      data = update,
       labels = ~race, 
-      values = ~percentage_number, 
+      values = ~avg_percent, 
       type = "pie"
     ) %>%
       layout(
