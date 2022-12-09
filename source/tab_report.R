@@ -64,7 +64,7 @@ report_tab <- tabPanel(
         h3(strong("Abstract"), id = "abstract"),
         hr(),
         p("The motivation for this project is the relation between poverty, economic
-          status, and racial identity on students??? graduation rates in Washington
+          status, and racial identity on student graduation rates in Washington
           state. While equality in public education is a commendable goal, schools
           must find ways to provide for students on an equitable basis. That is,
           Washington educators must recognize the unique struggles that children
@@ -83,21 +83,21 @@ report_tab <- tabPanel(
           Instruction (OSPI) releases an annual survey of student academic progress
           in Washington state in the form of its ", em("Report Card"), ", a
           collection of data ranging from standardized test scores to enrollemnt
-          statistics. Yet, how exactly does the OSPI define ???student progress????
-          To quote, ???The goal of Washington's K???12 education system is to prepare
-          every student for postsecondary pathways, careers, and civic engagement???
+          statistics. Yet, how exactly does the OSPI define \"student progress?\"
+          To quote, \"The goal of Washington's K-12 education system is to prepare
+          every student for postsecondary pathways, careers, and civic engagement\"
           (\"About OSPI\", n.d.). By this definition, it is implied that the state determines
-          students??? career preparedness based on their academic performance alone.
+          students' career preparedness based on their academic performance alone.
           If, for instance, a student ranks lower on standardized tests, then the
           OSPI may conclude that inadequacies in the current curriculum were to
-          blame for that particular student???s underperformance."),
+          blame for that particular student's underperformance."),
         p("However, the problem with this system lies precisely in this methodology:
-          rather than addressing the unique circumstances behind students??? academic
+          rather than addressing the unique circumstances behind students' academic
           struggles, the OSPI can only effect change at the state-level. In focusing
           on the difficulties of curriculum materials, educators often overlook the
           interpersonal nature of the problems afflicting students and are thus
           unable to imagine solutions which might better foster student learning.
-          This project examines how one such facet of students??? personal life, their
+          This project examines how one such facet of students' personal lives, their
           financial security, may impact student graduation rates. In
           addition, We will also analyze how youth poverty may be linked to other
           forms of identity, particularly race, and how historical data may suggest
@@ -109,8 +109,8 @@ report_tab <- tabPanel(
         h3(strong("Stakeholders"), id = "stakes"),
         hr(),
         p(em(strong("Direct Stakeholders: ")), "Policymakers and government officials who
-          wish to increase student graduation rates???and in effect promote student
-          success???act as direct stakeholders of this research. In a literal sense,
+          wish to increase student graduation rates--and in effect promote student
+          success--act as direct stakeholders of this research. In a literal sense,
           higher graduation rates equate to higher levels of education and a more
           qualified workforce. These political leaders possess the power to distribute
           state resources in such a way as to ensure that the needs of all students
@@ -140,7 +140,7 @@ report_tab <- tabPanel(
           of which is responsible for overseeing the education of all K-12 students
           in Washington state."),
         p(em(strong("Universal Access: ")), "Every student encounters challenges
-          during the course of their education. Sometimes, these challenges aren???t
+          during the course of their education. Sometimes, these challenges aren't
           rooted within their ability to learn so much as it is the situation that
           they face back at home (Coxe, 1923)"),
         p(em(strong("Data Transparency: ")), "In exploring this problem domain, we
@@ -188,7 +188,7 @@ report_tab <- tabPanel(
                racial identity?</em></li>
              </ol>"),
         p("Although food insecurity is one of many possible issues faced by
-          impoverished students, we chose to focus on this facet of students??? lives
+          impoverished students, we chose to focus on this facet of students' lives
           because no student should have to worry about hunger while attending
           school. Further, we explore the correlation between race and poverty
           to determine if students of particular racial backgrounds are
@@ -250,8 +250,8 @@ report_tab <- tabPanel(
           government agencies and nonprofit organizations, depending on how they
           wish for it to be used. As an example, US Census Bureau data on poverty
           across Washington counties focuses more on an estimate of the population
-          below poverty thresholds, while the OSPI???s data on student assessment
-          scores focuses more on student demographics and not so much students???
+          below poverty thresholds, while the OSPI's data on student assessment
+          scores focuses more on student demographics and not so much students'
           financial security. Even so, we are still able to apply the information
           gained from these datasets to formulate our own consensus on the relation
           between race, economic status, and gradution rates in Washington."),
@@ -296,7 +296,7 @@ report_tab <- tabPanel(
           mental stress outside of the classroom or social pressure from their
           peers as a result of food insecurity; these social impacts cannot
           easily be overcome through existing lunch programs which can, at
-          best, aid students during school hours. Students??? identities may also
+          best, aid students during school hours. Students' identities may also
           affect how likely they are to succeed in school, in the sense that
           students from particular backgrounds have been more
           disproportionately affected by education inequity than others. For
@@ -330,8 +330,8 @@ report_tab <- tabPanel(
           representation in the classroom and faculty and recognizing first
           generation and low income students in order to support them as well.
           Food insecurity, though one of many factors that could contribute to
-          a student???s struggle to learn, illustrates how financial hardship can
-          impact students??? performance in school. In particular, students from
+          a student's struggle to learn, illustrates how financial hardship can
+          impact students' performance in school. In particular, students from
           counties with lower average median incomes are at greater risk of
           suffering from food insecurity, which demonstrates how action must be
           taken on the part of educators so that students receive the support
@@ -345,7 +345,7 @@ report_tab <- tabPanel(
           easy to assume that the failure of schools to maintain high graduation
           rates is the result of difficulties in student learning or the
           effectiveness of teaching, educators and policymakers must consider
-          students??? personal lives and how their individual circumstances may
+          students' personal lives and how their individual circumstances may
           play a role in their academic growth."),
         br(),
         
